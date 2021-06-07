@@ -1,6 +1,7 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
 import org.w3c.dom.HTMLInputElement
+import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.EventListener
 import org.w3c.files.FileList
 import org.w3c.files.FileReader
@@ -62,6 +63,14 @@ private fun onStartCheckingButtonClicked() {
 
     if (fileCount == 0) {
         window.alert("ファイルを選択してください。")
+        return
+    }
+
+    val facultySelect = document.getElementById("faculty") as HTMLSelectElement
+    val majorSelect = document.getElementById("major") as HTMLSelectElement
+
+    if (facultySelect.value == "null" || majorSelect.value == "null" || majorSelect.value == ""){
+        window.alert("学類・主専攻を選択してください")
         return
     }
 
