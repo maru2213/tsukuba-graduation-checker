@@ -80,7 +80,7 @@ object GraduationChecker {
         console.log(userSubjects)
         console.log(major)
 
-        val array = Array(countChildSubject(major)) { Array(8) { TableProperty() } }
+        val array = Array(countChildSubject(major)) { Array(7) { TableProperty() } }
         var i = 0
 
         //4重ループをぶん回す
@@ -105,7 +105,7 @@ object GraduationChecker {
                             }
                         }
                         if (!array[i][2].isFilled) {
-                            array[i][2].data.text = subjectGroup.description
+                            array[i][2].data.text = subjectGroup.description.replace("\n", "<br>")
                             array[i][2].data.colspan = if (countChildSubject(subjectGroup) == 1) 2 else 1
                             array[i][2].data.rowspan = countChildSubject(subjectGroup)
                             for (j in i until i + array[i][2].data.rowspan) {
@@ -119,6 +119,46 @@ object GraduationChecker {
                             array[i][3].data.colspan = 1
                             array[i][3].data.rowspan = 1
                             array[i][3].isFilled = true
+                        }
+                        if (!array[i][4].isFilled) {
+                            if (subjectGroup.credits_min == subjectGroup.credits_max) {
+                                array[i][4].data.text = subjectGroup.credits_min.toString()
+                            } else {
+                                if (subjectGroup.credits_max == Int.MAX_VALUE) {
+                                    array[i][4].data.text = "${subjectGroup.credits_min}〜"
+                                } else {
+                                    array[i][4].data.text = "${subjectGroup.credits_min}〜${subjectGroup.credits_max}"
+                                }
+                            }
+                            array[i][4].data.colspan = 1
+                            array[i][4].data.rowspan = countChildSubject(subjectGroup)
+                            for (j in i until i + array[i][4].data.rowspan) {
+                                array[j][4].isFilled = true
+                            }
+                        }
+                        if (!array[i][5].isFilled) {
+                            if (subSubjectType.credits_min == subSubjectType.credits_max) {
+                                array[i][5].data.text = subSubjectType.credits_min.toString()
+                            } else {
+                                if (subSubjectType.credits_max == Int.MAX_VALUE) {
+                                    array[i][5].data.text = "${subSubjectType.credits_min}〜"
+                                } else {
+                                    array[i][5].data.text = "${subSubjectType.credits_min}〜${subSubjectType.credits_max}"
+                                }
+                            }
+                            array[i][5].data.colspan = 1
+                            array[i][5].data.rowspan = countChildSubject(subSubjectType)
+                            for (j in i until i + array[i][5].data.rowspan) {
+                                array[j][5].isFilled = true
+                            }
+                        }
+                        if (!array[i][6].isFilled) {
+                            array[i][6].data.text = major.credits_graduation.toString()
+                            array[i][6].data.colspan = 1
+                            array[i][6].data.rowspan = countChildSubject(major)
+                            for (j in i until i + array[i][6].data.rowspan) {
+                                array[j][6].isFilled = true
+                            }
                         }
                         i++
                     }
