@@ -1,5 +1,5 @@
 {
-  "version": "0.0.3",
+  "version": "0.0.4",
   "updated_at": "2021/06/07",
   "author": "maru2213",
   "faculties": [
@@ -24,7 +24,7 @@
                       "credits_max": 6,
                       "subjects": [
                         {
-                          "name": "ソフトウェアサイエンス実験",
+                          "name": "ソフトウェアサイエンス実験A",
                           "subject_number": [""],
                           "except_subject_numbers": [],
                           "credits": 3.0
@@ -44,13 +44,17 @@
                       "subjects": [
                         {
                           "name": "卒業研究A",
-                          "subject_number": [""],
+                          "subject_number": [
+                            ""
+                          ],
                           "except_subject_numbers": [],
                           "credits": 3.0
                         },
                         {
                           "name": "卒業研究B",
-                          "subject_number": [""],
+                          "subject_number": [
+                            ""
+                          ],
                           "except_subject_numbers": [],
                           "credits": 3.0
                         }
@@ -63,13 +67,17 @@
                       "subjects": [
                         {
                           "name": "専門語学A",
-                          "subject_number": [""],
+                          "subject_number": [
+                            ""
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "専門語学B",
-                          "subject_number": [""],
+                          "subject_number": [
+                            ""
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -88,9 +96,9 @@
                       "subjects": [
                         {
                           "subject_number": [
-                            "#BEGINS:GB20",
-                            "#BEGINS:GB30",
-                            "#BEGINS:GB40"
+                            "GB20",
+                            "GB30",
+                            "GB40"
                           ],
                           "except_subject_numbers": []
                         }
@@ -103,28 +111,32 @@
                       "subjects": [
                         {
                           "subject_number": [
-                            "#BEGINS:GB2",
-                            "#BEGINS:GB3",
-                            "#BEGINS:GB4",
-                            "#BEGINS:GA4"
+                            "GB2",
+                            "GB3",
+                            "GB4",
+                            "GA4"
                           ],
-                          "except_subject_numbers": []
+                          "except_subject_numbers": [
+                            "GB20",
+                            "GB30",
+                            "GB40"
+                          ]
                         },
                         {
                           "name": "情報科学特別演習",
-                          "subject_number": [""],
+                          "subject_number": ["GB13332"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "情報特別演習I",
-                          "subject_number": [""],
+                          "subject_number": ["GB13312"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "情報特別演習II",
-                          "subject_number": [""],
+                          "subject_number": ["GB13322"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -149,7 +161,10 @@
                       "subjects": [
                         {
                           "name": "線形代数A",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GA15211",
+                            "GA15221"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -162,7 +177,10 @@
                       "subjects": [
                         {
                           "name": "線形代数B",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GB10234",
+                            "GB10244"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -175,7 +193,10 @@
                       "subjects": [
                         {
                           "name": "微分積分A",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GA15311",
+                            "GA15321"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -188,7 +209,10 @@
                       "subjects": [
                         {
                           "name": "微分積分B",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GB10444",
+                            "GB10454"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -201,7 +225,10 @@
                       "subjects": [
                         {
                           "name": "情報数学A",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GA15111",
+                            "GA15121"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -214,7 +241,7 @@
                       "subjects": [
                         {
                           "name": "専門英語基礎",
-                          "subject_number": [""],
+                          "subject_number": ["GB19061"],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         }
@@ -227,7 +254,7 @@
                       "subjects": [
                         {
                           "name": "プログラミング入門A",
-                          "subject_number": [""],
+                          "subject_number": ["GA18212"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -240,7 +267,7 @@
                       "subjects": [
                         {
                           "name": "プログラミング入門B",
-                          "subject_number": [""],
+                          "subject_number": ["GA18312"],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         }
@@ -253,7 +280,7 @@
                       "subjects": [
                         {
                           "name": "コンピュータとプログラミング",
-                          "subject_number": [""],
+                          "subject_number": ["GB11964"],
                           "except_subject_numbers": [],
                           "credits": 3.0
                         }
@@ -266,7 +293,7 @@
                       "subjects": [
                         {
                           "name": "データ構造とアルゴリズム",
-                          "subject_number": [""],
+                          "subject_number": ["GB11931"],
                           "except_subject_numbers": [],
                           "credits": 3.0
                         }
@@ -279,7 +306,10 @@
                       "subjects": [
                         {
                           "name": "データ構造とアルゴリズム実験",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "GB11956",
+                            "GB11966"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -292,7 +322,7 @@
                       "subjects": [
                         {
                           "name": "論理回路",
-                          "subject_number": [""],
+                          "subject_number": ["GB10804"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -305,7 +335,7 @@
                       "subjects": [
                         {
                           "name": "論理回路演習",
-                          "subject_number": [""],
+                          "subject_number": ["GB12017"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         }
@@ -324,43 +354,43 @@
                       "subjects": [
                         {
                           "name": "確率論",
-                          "subject_number": [""],
+                          "subject_number": ["GB11601"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "統計学",
-                          "subject_number": [""],
+                          "subject_number": ["GB11621"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "数値計算法",
-                          "subject_number": [""],
+                          "subject_number": ["GB12301"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "論理と形式化",
-                          "subject_number": [""],
+                          "subject_number": ["GB12601"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "電磁気学",
-                          "subject_number": [""],
+                          "subject_number": ["GB11404"],
                           "except_subject_numbers": [],
                           "credits": 2.0
                         },
                         {
                           "name": "論理システム",
-                          "subject_number": [""],
+                          "subject_number": ["GB12801"],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         },
                         {
                           "name": "論理システム演習",
-                          "subject_number": [""],
+                          "subject_number": ["GB12812"],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         }
@@ -385,13 +415,16 @@
                       "subjects": [
                         {
                           "name": "フレッシュマン・セミナー",
-                          "subject_number": [""],
+                          "subject_number": ["11"],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         },
                         {
                           "name": "学問への誘い",
-                          "subject_number": [""],
+                          "subject_number": [
+                            "1227",
+                            "1228"
+                          ],
                           "except_subject_numbers": [],
                           "credits": 1.0
                         }
@@ -403,8 +436,10 @@
                       "credits_max": 2,
                       "subjects": [
                         {
-                          "subject_number": [""],
-                          "except_subject_numbers": []
+                          "subject_number": [
+                            "2"
+                          ],
+                          "except_subject_numbers": ["28"]
                         }
                       ]
                     },
@@ -414,8 +449,16 @@
                       "credits_max": 4,
                       "subjects": [
                         {
-                          "subject_number": [""],
-                          "except_subject_numbers": []
+                          "subject_number": [
+                            "31H",
+                            "31J",
+                            "31K",
+                            "31L"
+                          ],
+                          "except_subject_numbers": [
+                            "3190012",
+                            "3190022"
+                          ]
                         }
                       ]
                     },
@@ -425,7 +468,7 @@
                       "credits_max": 4,
                       "subjects": [
                         {
-                          "subject_number": [""],
+                          "subject_number": ["6"],
                           "except_subject_numbers": []
                         }
                       ]
@@ -442,8 +485,14 @@
                       "credits_min": 1,
                       "subjects": [
                         {
-                          "subject_number": [""],
-                          "except_subject_numbers": []
+                          "subject_number": [
+                            "12",
+                            "14"
+                          ],
+                          "except_subject_numbers": [
+                            "1227",
+                            "1228"
+                          ]
                         }
                       ]
                     },
@@ -453,8 +502,18 @@
                       "credits_max": 4,
                       "subjects": [
                         {
-                          "subject_number": [""],
-                          "except_subject_numbers": []
+                          "subject_number": [
+                            "28",
+                            "3",
+                            "4",
+                            "5"
+                          ],
+                          "except_subject_numbers": [
+                            "31H",
+                            "31J",
+                            "31K",
+                            "31L"
+                          ]
                         }
                       ]
                     }
@@ -481,7 +540,17 @@
                       "credits_min": 6,
                       "subjects": [
                         {
-                          "subject_number": [""],
+                          "subject_number": [
+                            "8",
+                            "99",
+                            "A",
+                            "B",
+                            "C",
+                            "W",
+                            "Y",
+                            "VB",
+                            "XJ"
+                          ],
                           "except_subject_numbers": []
                         }
                       ]
@@ -492,7 +561,13 @@
                       "credits_max": 4,
                       "subjects": [
                         {
-                          "subject_number": [""],
+                          "subject_number": [
+                            "E",
+                            "F",
+                            "GC",
+                            "GE",
+                            "H"
+                          ],
                           "except_subject_numbers": []
                         }
                       ]
