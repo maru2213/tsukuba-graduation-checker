@@ -1,14 +1,7 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonBuilder
-import kotlinx.serialization.json.JsonConfiguration
-import model.RuleDefinition
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.events.EventListener
-import org.w3c.fetch.Body
-import org.w3c.fetch.Request
-import org.w3c.files.Blob
 import org.w3c.files.FileList
 import org.w3c.files.FileReader
 import org.w3c.files.get
@@ -18,7 +11,8 @@ private var csvFiles: FileList? = null
 fun main() {
     MigrationChecker.loadRuleDefinitions()
 
-    document.getElementById("start-checking")?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
+    document.getElementById("start-checking")
+        ?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
     document.getElementById("subjects-csv")?.addEventListener("change", EventListener { event ->
         csvFiles = null
         resetTable()
