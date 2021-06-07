@@ -11,8 +11,7 @@ private var csvFiles: FileList? = null
 fun main() {
     GraduationChecker.loadRuleDefinitions()
 
-    document.getElementById("start-checking")
-        ?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
+    document.getElementById("start-checking")?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
     document.getElementById("subjects-csv")?.addEventListener("change", EventListener { event ->
         csvFiles = null
         resetTable()
