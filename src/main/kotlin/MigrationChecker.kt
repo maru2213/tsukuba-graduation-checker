@@ -36,6 +36,7 @@ object MigrationChecker {
         isChecking = true
 
         // rule_definitions.jsonの学群・学類で回す
+        /*
         ruleDefinitions.faculties.forEach { faculty ->
             var passedRequiredSubjects: Boolean? = null // 応募要件を満足したか
             var passedImportantSubjects: Boolean? = null // 重点科目上限単位数を満たしたか
@@ -139,10 +140,12 @@ object MigrationChecker {
             }
 
         }
+        */
 
         isChecking = false
     }
 
+    // TODO
     // 各要件が要求する単位の計算
     private fun countUnit(userSubjects: Map<String, Double>, ruleSubjects: List<String>): Double {
         var unit = 0.0
@@ -191,27 +194,28 @@ object MigrationChecker {
      のように、"講義番号\n講義名","単位のようになっているため、以下のような実装になっている。
      */
     fun checkWithCSV(csv: String) {
+        //TODO 要る？
         resetTable()
 
-        document.getElementById("subjects-box")!!.innerHTML += "<h3>登録された授業</h3>"
+        //document.getElementById("subjects-box")!!.innerHTML += "<h3>登録された授業</h3>"
 
         val subjects = mutableMapOf<String, Double>()
         val split = csv.split("\n")
-        var subjectText = ""
+        //var subjectText = ""
 
-        var sum = 0.0
+        //var sum = 0.0
         split.forEachIndexed { index, text ->
             if (text.matches("^(\")([a-zA-Z0-9]{7})\$") && split.size - 1 > index + 1) {
                 val data = split[index + 1].split("\",\"")
-                val subject = data[0]
+                val subjectNumber = text.match("[a-zA-Z0-9]{7}")!![0]
                 val unit = data[1].match("[+-]?\\d+(?:\\.\\d+)?")!![0].toDouble()
-                sum += unit
-                subjects[subject] = unit
-                subjectText += ",　$subject (${unit}単位)"
+                //sum += unit
+                subjects[subjectNumber] = unit
+                //subjectText += ",　$subject (${unit}単位)"
             }
         }
 
-        document.getElementById("subjects-box")!!.innerHTML += "<p>合計${sum}単位：${subjectText.substring(2)}</p>"
+        //document.getElementById("subjects-box")!!.innerHTML += "<p>合計${sum}単位：${subjectText.substring(2)}</p>"
 
         check(subjects)
     }
