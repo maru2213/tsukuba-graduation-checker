@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "updated_at": "2021/06/07",
   "author": "maru2213",
   "faculties": [
@@ -26,14 +26,474 @@
                         {
                           "name": "ソフトウェアサイエンス実験",
                           "subject_number": [""],
-                          "credits": 3.0,
-                          "is_except": false
+                          "except_subject_numbers": [],
+                          "credits": 3.0
                         },
                         {
                           "name": "ソフトウェアサイエンス実験B",
                           "subject_number": [""],
-                          "credits": 3.0,
-                          "is_except": false
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "卒業研究系",
+                      "credits_min": 6,
+                      "credits_max": 6,
+                      "subjects": [
+                        {
+                          "name": "卒業研究A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        },
+                        {
+                          "name": "卒業研究B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "専門語学系",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "name": "専門語学A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "専門語学B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 36,
+                  "credits_max": 36,
+                  "subject_groups": [
+                    {
+                      "description": "科目番号がGB20, GB30, GB40で始まる科目",
+                      "credits_min": 18,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "#BEGINS:GB20",
+                            "#BEGINS:GB30",
+                            "#BEGINS:GB40"
+                          ],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGB2, GB3, GB4, GA4で始まる科目\n情報科学特別演習\n情報特別演習I\n情報特別演習II",
+                      "credits_min": 0,
+                      "credits_max": 18,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "#BEGINS:GB2",
+                            "#BEGINS:GB3",
+                            "#BEGINS:GB4",
+                            "#BEGINS:GA4"
+                          ],
+                          "except_subject_numbers": []
+                        },
+                        {
+                          "name": "情報科学特別演習",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "情報特別演習I",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "情報特別演習II",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "専門基礎科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 26,
+                  "credits_max": 26,
+                  "subject_groups": [
+                    {
+                      "description": "線形代数A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "線形代数A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "線形代数B",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "線形代数B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "微分積分A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "微分積分A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "微分積分B",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "微分積分B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "情報数学A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "情報数学A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "専門英語基礎",
+                      "credits_min": 1,
+                      "credits_max": 1,
+                      "subjects": [
+                        {
+                          "name": "専門英語基礎",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "プログラミング入門A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "プログラミング入門A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "プログラミング入門B",
+                      "credits_min": 1,
+                      "credits_max": 1,
+                      "subjects": [
+                        {
+                          "name": "プログラミング入門B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "コンピュータとプログラミング",
+                      "credits_min": 3,
+                      "credits_max": 3,
+                      "subjects": [
+                        {
+                          "name": "コンピュータとプログラミング",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "データ構造とアルゴリズム",
+                      "credits_min": 3,
+                      "credits_max": 3,
+                      "subjects": [
+                        {
+                          "name": "データ構造とアルゴリズム",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "データ構造とアルゴリズム実験",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "データ構造とアルゴリズム実験",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "論理回路",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "論理回路",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "論理回路演習",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "論理回路演習",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 24,
+                  "credits_max": 24,
+                  "subject_groups": [
+                    {
+                      "description": "確率論グループ",
+                      "credits_min": 10,
+                      "subjects": [
+                        {
+                          "name": "確率論",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "統計学",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "数値計算法",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "論理と形式化",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "電磁気学",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "論理システム",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        },
+                        {
+                          "name": "論理システム演習",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "基礎科目-共通科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 12,
+                  "credits_max": 12,
+                  "subject_groups": [
+                    {
+                      "description": "総合科目(フレッシュマン・セミナー, 学問への誘い)",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "フレッシュマン・セミナー",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        },
+                        {
+                          "name": "学問への誘い",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "体育",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "外国語(英語)",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "情報",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 1,
+                  "credits_max": 5,
+                  "subject_groups": [
+                    {
+                      "description": "総合科目(学士基盤科目)",
+                      "credits_min": 1,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "その他",
+                      "credits_min": 0,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "基礎科目-関連科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 0,
+                  "credits_max": 0,
+                  "subject_groups": []
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 6,
+                  "credits_max": 10,
+                  "subject_groups": [
+                    {
+                      "description": "「E,F,G,Hで始まる科目、共通科目及び教職に関する科目」以外の科目",
+                      "credits_min": 6,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "E,F,GC,GE,Hで始まる科目",
+                      "credits_min": 0,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [""],
+                          "except_subject_numbers": []
                         }
                       ]
                     }
