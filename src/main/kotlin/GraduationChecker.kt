@@ -11,7 +11,8 @@ object GraduationChecker {
 
     // rule_definitions.jsonを読み込む
     fun loadRuleDefinitions() {
-        window.fetch(Request("https://raw.githubusercontent.com/maru2213/scs-migration-checker/master/src/main/resources/rule_definitions.json"))
+        //TODO URL変更
+        window.fetch(Request("https://maru2213.github.io/private-json/rule_definitions.json"))
             .then(onFulfilled = {
                 it.text().then { json ->
                     onLoadFinished(json)

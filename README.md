@@ -10,19 +10,30 @@ rule_definitions.json is used by this tool to define the migration requirements.
  check whether users' timetable adapts migration requirements each faculty defines.
 
 ### Format
-- [rule_definitions.json](https://github.com/itsu-dev/scs-migration-checker/blob/master/src/main/kotlin/model/RuleDefinition.kt)
+- [rule_definitions.json](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/RuleDefinition.kt)
     - version : ```String``` Define version (e.g. 1.0.0)
-    - updated_at : ```String``` Define last updated at (e.g. 20210603)
+    - updated_at : ```String``` Define last update date (e.g. 20210603)
     - author : ```String``` Define author
-    - [faculties](https://github.com/itsu-dev/scs-migration-checker/blob/master/src/main/kotlin/model/Faculty.kt) : ```Array<Faculty>```
-        - faculty_name : ```String``` Define faculty name. (e.g. 地球学類)
-        - [rules](https://github.com/itsu-dev/scs-migration-checker/blob/master/src/main/kotlin/model/Rule.kt) : ```Array<Rule>``` Define migration requirements
-            - description : ```String```  The requirement's description
-            - type : ```String (required_subjects:応募要件|important_subjects:重点科目上限単位数|required_subjects_limit:応募要件の履修制限|important_subject_limit:重点科目の履修制限|others:その他)```
-            - subjects (Optional) : ```Array<String>``` Required subjects **(as name, not ID)**
-            - minimum (Optional) : ```Integer``` Minimum subjects count (or unit) of the requirement
-            - maximum (Optional) : ```Integer``` Maximum subjects count (or unit) of the requirement
-            - message (Optional) : ```String``` Message to display
+    - [faculties](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/Faculty.kt) : ```Array<Faculty>```
+        - faculty_name : ```String``` Define faculty name. (e.g. 情報科学類)
+        - [majors](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/Major.kt) : ```Array<Major>```
+            - major_name : ```String``` Define major name. (e.g. ソフトウェアサイエンス)
+            - credits_graduation : ```Integer``` Credits required for graduation 
+            - [subject_types](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/SubjectType.kt) : ```Array<SubjectType>```
+                - subject_type_name : ```String``` Define subject_type name. (専門科目/専門基礎科目/基礎科目-共通科目/基礎科目-関連科目)
+                - [sub_subject_types](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/SubSubjectType.kt) : ```Array<SubSubjectType>```
+                    - sub_subject_type_name : ```String``` Define sub_subject_type name. (必修科目/選択科目)
+                    - credits_min : ```Integer``` Minimum credits of this sub_subject_type
+                    - credtis_max : ```Integer``` Maximum credits of this sub_subject_type
+                    - [subject_groups](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/SubjectGroup.kt) : ```Array<SubjectGroup>```
+                        - description : ```String``` Define description of this subject_group.
+                        - credits_min : ```Integer``` Minimum credits of this subject_group
+                        - credtis_max : ```Integer``` Maximum credits of this subject_group
+                        - [subjects](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/Subject.kt) : ```Array<Subject>```
+                            - name : ```String``` The subject's name (e.g. フレッシュマンセミナー)
+                            - subject_number : ```String``` The subject's number (e.g. 1101102)
+                            - credits : ```Double``` The subject's credits (e.g. 1.0)
+                            - is_except : ```Boolean``` Whether this subject is exception (〇〇は除く系か否か)
     
 #### Subject name
 Subject name must be defined at `````/faculties/rules/subjects`````.
