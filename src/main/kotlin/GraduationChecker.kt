@@ -55,7 +55,9 @@ object GraduationChecker {
                     return@forEach
                 }
 
-                majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+                if (faculty.majors.size >= 2) {
+                    majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+                }
                 faculty.majors.forEach { major ->
                     majorSelect.innerHTML += "<option>${major.major_name}</option>"
                 }
