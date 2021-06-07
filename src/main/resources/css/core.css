@@ -74,6 +74,24 @@ footer {
     margin-right: 1.0em;
 }
 
+th.group {
+    width: 10%;
+}
+
+th.subject_group {
+    width: 24%;
+}
+
+th.subject {
+    width: 24%;
+}
+
+th.credit_count {
+    width: 8%;
+    font-size: 10pt;
+}
+
+/*
 .message-box-th {
     width: 60%;
 }
@@ -81,6 +99,7 @@ footer {
 .result-box {
     width: 10%;
 }
+*/
 
 div#course {
     margin: 0.7em 0 0.7em 0;
