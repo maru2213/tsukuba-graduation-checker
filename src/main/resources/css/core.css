@@ -51,6 +51,10 @@ h3 {
     font-weight: normal;
 }
 
+footer {
+    margin-top: 32px;
+}
+
 .form-box {
     alignment: right;
     text-align: right;

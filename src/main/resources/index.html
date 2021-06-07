@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link rel="stylesheet" href="css/core.css">
-    <title>ITF.scs 移行要件チェックツール</title>
+    <title>ITF.coins 卒業要件チェックツール</title>
 </head>
 
 <body>
 <div class="header-base">
     <div class="header">
-        <h2>筑波大学 総合学域群 移行要件チェックツール</h2>
-        <p class="caption">「令和3（2021）年度　履修・移行ガイドブック」に沿って、自分の履修時間割が移行要件に適合しているかを確認します。</p>
+        <h2>筑波大学 情報科学類 卒業要件チェックツール</h2>
+        <p class="caption">「令和3（2021）年度　履修要覧」に基づいて、自分の履修時間割が卒業要件をどれだけ満たしているかを確認します。</p>
     </div>
 </div>
 
@@ -21,6 +21,7 @@
         <button id="start-checking" class="start-checking-button" onclick="void(0)">判定を開始</button>
     </div>
 
+    <!-- TODO 表の内容の変更 -->
     <table id="result">
         <tr>
             <th>学群・学類</th>
@@ -30,29 +31,44 @@
         </tr>
     </table>
 
+    <!-- TODO 要らないかも -->
     <div id="subjects-box"></div>
 
     <h3>使い方</h3>
-    <p>
-        1．<a href="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb">KdBもどき</a>にPCでアクセスする<br />
-        2．仮の履修時間割を組む<br />
-        3．検索条件をクリアし、「お気に入り」にチェックを入れて検索する<br />
-        4．画面最下部の「CSVダウンロード」をクリックする<br />
-        5．移行要件ツールでダウンロードしたCSVファイルを選択する<br />
-        6．「判定を開始」を押す
-    </p>
+    <ul>
+        <li>KdBもどきを使用する場合
+            <ol>
+                <!-- TODO 使用方法変更する -->
+                <li><a href="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb">KdBもどき</a>にPCでアクセスする</li>
+                <li>仮の履修時間割を組む</li>
+                <li>検索条件をクリアし、「お気に入り」にチェックを入れて検索する</li>
+                <li>画面最下部の「CSVダウンロード」をクリックする</li>
+                <li>移行要件ツールでダウンロードしたCSVファイルを選択する</li>
+                <li>「判定を開始」を押す</li>
+            </ol>
+        </li>
+        <li>Twinsを使用する場合
+            <ol>
+                <!-- TODO 使用方法書く -->
+                <li>実装中です……</li>
+            </ol>
+        </li>
+    </ul>
+
+    <!-- TODO 多分削る -->
     <p>
         ・応募可能で重点科目上限単位数を超えている場合に緑、重点科目単位数を超えていない場合には黄、そのどちらでもない場合には赤で示しています。<br />
         ・使用したCSVファイルはサーバーには保存されません。<br />
         ・医療科学類の重点科目上限単位数、医学類の判定には対応しておりません。
     </p>
 </div>
+<!-- TODO ナニコレ -->
 <div id="root"></div>
 <script src="scs-migration-checker.js"></script>
 
 <footer>
     <div class="footer" id="footer">
-        <br>
+        <!-- TODO フッター書き換え -->
         Contributed by <a href="https://github.com/itsu-dev">ちゅるり</a>, <a href="https://github.com/Mimori256">Mimori256</a> / <a
             href="https://github.com/itsu-dev/scs-migration-checker">GitHub</a> <br/>
         scs-migration-checkerは筑波大学公式ではありません。
