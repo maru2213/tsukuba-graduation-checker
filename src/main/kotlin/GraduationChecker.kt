@@ -2,6 +2,9 @@ import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.json.Json
 import model.RuleDefinition
+import org.w3c.dom.HTMLSelectElement
+import org.w3c.dom.SelectionMode
+import org.w3c.dom.events.EventListener
 import org.w3c.fetch.Request
 
 object GraduationChecker {
@@ -23,6 +26,43 @@ object GraduationChecker {
     private fun onLoadFinished(json: String) {
         ruleDefinitions = Json.decodeFromString(RuleDefinition.serializer(), json)
         console.log("[Rule Definitions] Version: ${ruleDefinitions.version} Last Updated At: ${ruleDefinitions.updatedAt}")
+
+        val facultySelect = document.getElementById("faculty") ?: run {
+            //TODO 文言これでいい？
+            window.alert("エラーが発生しました")
+            return
+        }
+        facultySelect.innerHTML += """<option value="null">選択してください</option>"""
+        ruleDefinitions.faculties.forEach { faculty ->
+            facultySelect.innerHTML += "<option>${faculty.facultyName}</option>"
+        }
+
+        document.getElementById("faculty")?.addEventListener("input", EventListener { event ->
+            val majorSelect = document.getElementById("major") ?: run {
+                //TODO 文言これでいい？
+                window.alert("エラーが発生しました")
+                return@EventListener
+            }
+
+            val selectedValue = (event.target as HTMLSelectElement).value
+            if (selectedValue == "null") {
+                majorSelect.innerHTML = "";
+                return@EventListener
+            }
+
+            ruleDefinitions.faculties.forEach { faculty ->
+                if (selectedValue != faculty.facultyName) {
+                    //continueみたいなモノ
+                    return@forEach
+                }
+
+                majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+                faculty.majors.forEach { major ->
+                    majorSelect.innerHTML += "<option>${major.major_name}</option>"
+                }
+                return@EventListener
+            }
+        })
     }
 
     // 移行要件をチェックする
