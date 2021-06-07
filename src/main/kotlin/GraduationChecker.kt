@@ -2,9 +2,7 @@ import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.json.Json
 import model.*
-import org.w3c.dom.Attr
 import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.SelectionMode
 import org.w3c.dom.events.EventListener
 import org.w3c.fetch.Request
 
@@ -80,177 +78,88 @@ object GraduationChecker {
         console.log(userSubjects)
         console.log(major)
 
+        var tr = document.createElement("tr")
+        document.getElementById("result")!!.appendChild(tr)
+
         //4重ループをぶん回す
-        major.subject_types.forEachIndexed { index1, subjectType ->
-            subjectType.sub_subject_types.forEachIndexed { index2, subSubjectType ->
-                subSubjectType.subject_groups.forEachIndexed { index3, subjectGroup ->
+        //とてもspaghetti
+        major.subject_types.forEachIndexed loop1@{ index1, subjectType ->
+            if (subjectType.sub_subject_types.size == 0) {
+                return@loop1
+            }
+            val group1_td = document.createElement("td")
+            val childCount1 = countChildSubject(subjectType)
+            if (childCount1 != 0) {
+                group1_td.innerHTML = subjectType.subject_type_name
+                group1_td.setAttribute("rowspan", childCount1.toString())
+            }
+            subjectType.sub_subject_types.forEachIndexed loop2@{ index2, subSubjectType ->
+                if (subSubjectType.subject_groups.size == 0) {
+                    tr.appendChild(group1_td)
+                    return@loop2
+                }
+                val group2_td = document.createElement("td")
+                val childCount2 = countChildSubject(subSubjectType)
+                if (childCount2 != 0) {
+                    group2_td.innerHTML = subSubjectType.sub_subject_type_name
+                    group2_td.setAttribute("rowspan", childCount2.toString())
+                }
+                subSubjectType.subject_groups.forEachIndexed loop3@{ index3, subjectGroup ->
+                    if (subjectGroup.subjects.size == 0) {
+                        if (index2 == 0) {
+                            tr.appendChild(group1_td)
+                        }
+                        tr.appendChild(group2_td)
+                        return@loop3
+                    }
+                    val subjectGroup_td = document.createElement("td")
+                    val childCount3 = countChildSubject(subjectGroup)
+                    if (childCount3 != 0) {
+                        subjectGroup_td.innerHTML = subjectGroup.description.replace("\n", "<br>")
+                        subjectGroup_td.setAttribute("rowspan", childCount3.toString())
+                        if (subjectGroup.subjects.size == 1) {
+                            subjectGroup_td.setAttribute("colspan", "2")
+                        }
+                    }
                     subjectGroup.subjects.forEachIndexed { index4, subject ->
                         /*
-                        index1, subjectType : 専門科目 etc.
-                        index2, subSubjectType : 必修科目 etc.
-                        index3, subjectGroup : E,F,G,H... etc.
-                        index4, subject : 確率論 etc.
-                         */
+                            index1, subjectType : 専門科目 etc.
+                            index2, subSubjectType : 必修科目 etc.
+                            index3, subjectGroup : E,F,G,H... etc.
+                            index4, subject : 確率論 etc.
+                             */
 
-                        val tr = document.createElement("tr")
-                        document.getElementById("result")!!.appendChild(tr)
-
-                        if (index4 == 0) {
+                        if (subjectGroup.subjects.size == 1) {
                             if (index3 == 0) {
                                 if (index2 == 0) {
-                                    val childCount1 = countChildSubject(subjectType)
-                                    console.log("1:" + subject.name + ", " + childCount1)
-                                    if (childCount1 != 0) {
-                                        val group1_td = document.createElement("td").also {
-                                            it.innerHTML = subjectType.subject_type_name
-                                            it.setAttribute("rowspan", childCount1.toString())
-                                        }
-                                        tr.appendChild(group1_td)
-                                    }
+                                    tr.appendChild(group1_td)
                                 }
-
-                                val childCount2 = countChildSubject(subSubjectType)
-                                console.log("2:" + subject.name + ", " + childCount2)
-                                if (childCount2 != 0) {
-                                    val group2_td = document.createElement("td").also {
-                                        it.innerHTML = subSubjectType.sub_subject_type_name
-                                        it.setAttribute("rowspan", childCount2.toString())
-                                    }
-                                    tr.appendChild(group2_td)
-                                }
+                                tr.appendChild(group2_td)
                             }
-
-                            val childCount3 = countChildSubject(subjectGroup)
-                            console.log("3:" + subject.name + ", " + childCount3)
-                            if (childCount3 != 0) {
-                                val subjectGroup_td = document.createElement("td").also {
-                                    it.innerHTML = subjectGroup.description.replace("\n", "<br>")
-                                    it.setAttribute("rowspan", childCount3.toString())
-                                    if (subjectGroup.subjects.size == 1) {
-                                        it.setAttribute("colspan", "2")
-                                    }
-                                }
-                                tr.appendChild(subjectGroup_td)
-                            }
-                        }
-
-                        if (subjectGroup.subjects.size >= 2) {
+                            tr.appendChild(subjectGroup_td)
+                        } else if (subjectGroup.subjects.size >= 2) {
                             val subject_td = document.createElement("td").also {
                                 it.innerHTML = subject.name
                             }
+                            if (index4 == 0) {
+                                if (index3 == 0) {
+                                    if (index2 == 0) {
+                                        tr.appendChild(group1_td)
+                                    }
+                                    tr.appendChild(group2_td)
+                                }
+                                tr.appendChild(subjectGroup_td)
+                            }
                             tr.appendChild(subject_td)
                         }
+                        tr = document.createElement("tr")
+                        document.getElementById("result")!!.appendChild(tr)
                     }
                 }
             }
         }
 
-        // rule_definitions.jsonの学群・学類で回す
-        /*
-        ruleDefinitions.faculties.forEach { faculty ->
-            var passedRequiredSubjects: Boolean? = null // 応募要件を満足したか
-            var passedImportantSubjects: Boolean? = null // 重点科目上限単位数を満たしたか
-
-            val tr = document.createElement("tr")
-            document.getElementById("result")!!.appendChild(tr)
-
-            // テーブルの「講義名」
-            val facultyName = document.createElement("td").also {
-                it.innerHTML = faculty.facultyName
-            }
-            tr.appendChild(facultyName)
-
-            // テーブルの「メッセージ」
-            val comments = document.createElement("td").also {
-                it.classList.add("message-box")
-            }
-            tr.appendChild(comments)
-
-            // 各学群・学類で定義された要件を回す
-            faculty.rules.forEach { rule ->
-                when (rule.type) {
-                    // 応募要件
-                    "required_subjects" -> {
-                        passedRequiredSubjects ?: run {
-                            passedRequiredSubjects = true
-                        }
-                        val count = countUnit(userSubjects, rule.subjects)
-                        if (count < rule.minimum || count > rule.maximum) passedRequiredSubjects = false
-                    }
-
-                    // 重点科目上限単位数
-                    "important_subjects" -> {
-                        passedImportantSubjects ?: run {
-                            passedImportantSubjects = true
-                        }
-                        val count = countUnit(userSubjects, rule.subjects)
-                        if (count < rule.minimum || count > rule.maximum) passedImportantSubjects = false
-                    }
-
-                    // 応募要件の制限単位
-                    "required_subjects_limit" -> {
-                        val count = countUnit(userSubjects, rule.subjects)
-                        if (count > rule.maximum) {
-                            var text = ""
-                            rule.subjects.forEach {
-                                val split = it.split("::") // 講義名::単位
-                                text +=
-                                    if (split.size == 1) ",　${split[0]} (1単位)"
-                                    else ",　${split[0]} (${split[1]}単位)"
-                            }
-                            comments.innerHTML += "・${text.substring(2)}のうち、最大で取ることができるのは${rule.maximum}単位までです (履修予定：${count.toInt()}単位)<br />"
-                        }
-                    }
-                }
-
-                // メッセージがあれば表示
-                if (rule.message.isNotEmpty()) {
-                    comments.innerHTML += "・${rule.message}<br />"
-                }
-            }
-
-            // メッセージを表示
-            if (passedRequiredSubjects == false) comments.innerHTML += "・応募要件を満たしていません<br />"
-            if (passedImportantSubjects == false) comments.innerHTML += "・重点科目上限を超えていません<br />"
-
-            // 応募要件の〇×-
-            tr.appendChild(
-                document.createElement("td").also {
-                    it.innerHTML = when (passedRequiredSubjects) {
-                        true -> "<span class=\"passed\">〇</span>"
-                        false -> "<span class=\"missed\">×</span>"
-                        else -> "<span>-</span>"
-                    }
-                }
-            )
-
-            // 重点科目上限の〇×-
-            tr.appendChild(
-                document.createElement("td").also {
-                    it.innerHTML = when (passedImportantSubjects) {
-                        true -> "<span class=\"passed\">〇</span>"
-                        false -> "<span class=\"missed\">×</span>"
-                        else -> "<span>-</span>"
-                    }
-                }
-            )
-
-            // 移行要件の適合度によって学類の色を変える
-            when {
-                // 応募要件と重点科目上限を満足
-                passedRequiredSubjects != false && passedImportantSubjects != false ->
-                    facultyName.classList.add("faculty-name-passed")
-
-                // 応募要件のみ満足
-                passedRequiredSubjects != false && passedImportantSubjects == false ->
-                    facultyName.classList.add("faculty-name-ok")
-
-                // 何も満足していない
-                else -> facultyName.classList.add("faculty-name-missed")
-            }
-
-        }
-        */
+        document.getElementById("result")!!.lastElementChild?.remove()
 
         isChecking = false
     }
