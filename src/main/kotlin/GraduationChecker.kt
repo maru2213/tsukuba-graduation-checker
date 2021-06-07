@@ -1,7 +1,8 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.json.Json
-import model.RuleDefinition
+import model.*
+import org.w3c.dom.Attr
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.SelectionMode
 import org.w3c.dom.events.EventListener
@@ -67,7 +68,7 @@ object GraduationChecker {
 
     // 移行要件をチェックする
     // userSubjects: ユーザの登録済み講義 <講義名, 単位>
-    private fun check(userSubjects: Map<String, Double>) {
+    private fun check(userSubjects: Map<String, Double>, major: Major) {
 
         if (isChecking) {
             window.alert("判定中です")
@@ -75,6 +76,74 @@ object GraduationChecker {
         }
 
         isChecking = true
+
+        console.log(userSubjects)
+        console.log(major)
+
+        //4重ループをぶん回す
+        major.subject_types.forEachIndexed { index1, subjectType ->
+            subjectType.sub_subject_types.forEachIndexed { index2, subSubjectType ->
+                subSubjectType.subject_groups.forEachIndexed { index3, subjectGroup ->
+                    subjectGroup.subjects.forEachIndexed { index4, subject ->
+                        /*
+                        index1, subjectType : 専門科目 etc.
+                        index2, subSubjectType : 必修科目 etc.
+                        index3, subjectGroup : E,F,G,H... etc.
+                        index4, subject : 確率論 etc.
+                         */
+
+                        val tr = document.createElement("tr")
+                        document.getElementById("result")!!.appendChild(tr)
+
+                        if (index4 == 0) {
+                            if (index3 == 0) {
+                                if (index2 == 0) {
+                                    val childCount1 = countChildSubject(subjectType)
+                                    console.log("1:" + subject.name + ", " + childCount1)
+                                    if (childCount1 != 0) {
+                                        val group1_td = document.createElement("td").also {
+                                            it.innerHTML = subjectType.subject_type_name
+                                            it.setAttribute("rowspan", childCount1.toString())
+                                        }
+                                        tr.appendChild(group1_td)
+                                    }
+                                }
+
+                                val childCount2 = countChildSubject(subSubjectType)
+                                console.log("2:" + subject.name + ", " + childCount2)
+                                if (childCount2 != 0) {
+                                    val group2_td = document.createElement("td").also {
+                                        it.innerHTML = subSubjectType.sub_subject_type_name
+                                        it.setAttribute("rowspan", childCount2.toString())
+                                    }
+                                    tr.appendChild(group2_td)
+                                }
+                            }
+
+                            val childCount3 = countChildSubject(subjectGroup)
+                            console.log("3:" + subject.name + ", " + childCount3)
+                            if (childCount3 != 0) {
+                                val subjectGroup_td = document.createElement("td").also {
+                                    it.innerHTML = subjectGroup.description.replace("\n", "<br>")
+                                    it.setAttribute("rowspan", childCount3.toString())
+                                    if (subjectGroup.subjects.size == 1) {
+                                        it.setAttribute("colspan", "2")
+                                    }
+                                }
+                                tr.appendChild(subjectGroup_td)
+                            }
+                        }
+
+                        if (subjectGroup.subjects.size >= 2) {
+                            val subject_td = document.createElement("td").also {
+                                it.innerHTML = subject.name
+                            }
+                            tr.appendChild(subject_td)
+                        }
+                    }
+                }
+            }
+        }
 
         // rule_definitions.jsonの学群・学類で回す
         /*
@@ -186,6 +255,26 @@ object GraduationChecker {
         isChecking = false
     }
 
+    private fun countChildSubject(subjectGroup: SubjectGroup): Int {
+        return subjectGroup.subjects.size
+    }
+
+    private fun countChildSubject(subSubjectType: SubSubjectType): Int {
+        var count = 0
+        subSubjectType.subject_groups.forEach { subjectGroup ->
+            count += countChildSubject(subjectGroup)
+        }
+        return count
+    }
+
+    private fun countChildSubject(subjectType: SubjectType): Int {
+        var count = 0
+        subjectType.sub_subject_types.forEach { subSubjectType ->
+            count += countChildSubject(subSubjectType)
+        }
+        return count
+    }
+
     // TODO
     // 各要件が要求する単位の計算
     private fun countUnit(userSubjects: Map<String, Double>, ruleSubjects: List<String>): Double {
@@ -196,7 +285,7 @@ object GraduationChecker {
                 ruleSubject.startsWith("#OTHER_SUBJECTS") -> {
                     var unitCount = 0.0
                     val maxUnit = ruleSubject.split(":")[1].toInt()
-                    userSubjects.forEach otherSubjects@ {
+                    userSubjects.forEach otherSubjects@{
                         if (!ruleSubjects.contains(it.key)) {
                             if (unitCount + it.value <= maxUnit) {
                                 unit += it.value
@@ -258,6 +347,22 @@ object GraduationChecker {
 
         //document.getElementById("subjects-box")!!.innerHTML += "<p>合計${sum}単位：${subjectText.substring(2)}</p>"
 
-        check(subjects)
+        val selectedFaculty = (document.getElementById("faculty") as HTMLSelectElement).value
+        val selectedMajor = (document.getElementById("major") as HTMLSelectElement).value
+
+        run {
+            ruleDefinitions.faculties.forEach { faculty ->
+                if (selectedFaculty != faculty.facultyName) {
+                    return@forEach
+                }
+
+                faculty.majors.forEach { major ->
+                    if (selectedMajor == major.major_name) {
+                        check(subjects, major)
+                        return@run
+                    }
+                }
+            }
+        }
     }
 }
