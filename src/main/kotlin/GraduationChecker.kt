@@ -45,7 +45,7 @@ object GraduationChecker {
 
             val selectedValue = (event.target as HTMLSelectElement).value
             if (selectedValue == "null") {
-                majorSelect.innerHTML = "";
+                majorSelect.innerHTML = ""
                 return@EventListener
             }
 
@@ -80,7 +80,7 @@ object GraduationChecker {
         console.log(userSubjects)
         console.log(major)
 
-        val array = Array(countChildSubject(major), { Array(8, { TableProperty() }) })
+        val array = Array(countChildSubject(major)) { Array(8) { TableProperty() } }
         var i = 0
 
         //4重ループをぶん回す
@@ -126,10 +126,12 @@ object GraduationChecker {
             }
         }
 
-        for (j in 0 until array.size) {
+        //TODO 単位計算
+
+        for (j in array.indices) {
             val tr = document.createElement("tr")
             document.getElementById("result")!!.appendChild(tr)
-            for (k in 0 until array[j].size) {
+            for (k in array[j].indices) {
                 if (array[j][k].data.text == "") {
                     continue
                 }
