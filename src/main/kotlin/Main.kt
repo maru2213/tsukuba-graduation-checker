@@ -17,19 +17,15 @@ fun main() {
         csvFiles = null
         resetTable()
 
-        val fileCount = (event.target as HTMLInputElement).files?.length ?: run {
-            window.alert("ファイルを選択してください。")
-            return@EventListener
-        }
-
-        if (fileCount == 0) {
-            //何かのファイルを選択、確定した後にもう一度ファイル選択画面を開き、キャンセルを押すとここにくる
-            //window.alert("ファイルを選択してください。")
-            return@EventListener
-        }
-
         val files = (event.target as HTMLInputElement).files ?: run {
             window.alert("ファイルを選択してください。")
+            return@EventListener
+        }
+
+        val fileCount = files.length
+        if (fileCount == 0) {
+            //何かのファイルを選択・確定した後にもう一度ファイル選択画面を開き、キャンセルを押すとここにくる
+            //window.alert("ファイルを選択してください。")
             return@EventListener
         }
 
@@ -60,7 +56,6 @@ private fun onStartCheckingButtonClicked() {
         window.alert("ファイルを選択してください。")
         return
     }
-
     if (fileCount == 0) {
         window.alert("ファイルを選択してください。")
         return
@@ -68,13 +63,12 @@ private fun onStartCheckingButtonClicked() {
 
     val facultySelect = document.getElementById("faculty") as HTMLSelectElement
     val majorSelect = document.getElementById("major") as HTMLSelectElement
-
-    if (facultySelect.value == "null" || majorSelect.value == "null" || majorSelect.value == ""){
+    if (facultySelect.value == "null" || majorSelect.value == "null" || majorSelect.value == "") {
         window.alert("学類・主専攻を選択してください")
         return
     }
 
-    var result: String = ""
+    var result = ""
 
     for (i in 0 until fileCount) {
         val file = csvFiles?.get(i) ?: run {
