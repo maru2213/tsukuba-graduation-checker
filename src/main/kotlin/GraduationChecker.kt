@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import model.RuleDefinition
 import org.w3c.fetch.Request
 
-object MigrationChecker {
+object GraduationChecker {
 
     private lateinit var ruleDefinitions: RuleDefinition
     private var isChecking = false

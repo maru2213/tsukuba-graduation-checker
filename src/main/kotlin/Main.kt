@@ -9,7 +9,7 @@ import org.w3c.files.get
 private var csvFiles: FileList? = null
 
 fun main() {
-    MigrationChecker.loadRuleDefinitions()
+    GraduationChecker.loadRuleDefinitions()
 
     document.getElementById("start-checking")
         ?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
@@ -85,7 +85,7 @@ private fun onStartCheckingButtonClicked() {
             stringBuilder.toString().also { result = it }
             if (i == fileCount - 1) {
                 window.alert(result)
-                MigrationChecker.checkWithCSV(result)
+                //GraduationChecker.checkWithCSV(result)
             }
         }
     }
