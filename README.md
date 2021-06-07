@@ -31,7 +31,7 @@ rule_definitions.json is used by this tool to define the migration requirements.
                         - credtis_max : ```Integer``` Maximum credits of this subject_group
                         - [subjects](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/Subject.kt) : ```Array<Subject>```
                             - name : ```String``` The subject's name (e.g. フレッシュマンセミナー)
-                            - subject_number : ```String``` The subject's number (e.g. 1101102)
+                            - subject_numbers : ```Array<String>``` The subject's numbers (e.g. 1101102)
                             - credits : ```Double``` The subject's credits (e.g. 1.0)
                             - is_except : ```Boolean``` Whether this subject is exception (〇〇は除く系か否か)
     
