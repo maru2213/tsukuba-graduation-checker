@@ -48,9 +48,9 @@ fun main() {
 
 private fun onStartCheckingButtonClicked() {
     //TODO 多分コードめっちゃ汚い。refactoring
-    document.getElementById("subjects-box")!!.innerHTML += "<h3>登録された授業</h3>"
-    document.getElementById("subjects-box")!!.innerHTML += "<p>合計3単位：知能と情報科学 (1単位),　計算と情報科学 (1単位),　情報科学概論 (1単位)</p>"
-    document.getElementById("result")!!.innerHTML += "<tbody><tr><td class=\"faculty-name-missed\">人文学類</td><td class=\"message-box\">・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-passed\">教育学類</td><td class=\"message-box\"></td><td><span>-</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-missed\">生物学類（区分A）</td><td class=\"message-box\">・応募要件を満たしていません<br>・重点科目上限を超えていません<br></td><td><span class=\"missed\">×</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-ok\">情報科学類（区分A）</td><td class=\"message-box\">・重点科目上限を超えていません<br></td><td><span>-</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-missed\">医療科学類</td><td class=\"message-box\">・重点科目として医科生化学・人体構造学・人体機能学・医科分子生物学・医療科学概論とこれら以外の専門導入科目、および化学類、物理学類開設の生物学序説が含まれます（8単位まで）<br>・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr></tbody>"
+    //document.getElementById("subjects-box")!!.innerHTML += "<h3>登録された授業</h3>"
+    //document.getElementById("subjects-box")!!.innerHTML += "<p>合計3単位：知能と情報科学 (1単位),　計算と情報科学 (1単位),　情報科学概論 (1単位)</p>"
+    //document.getElementById("result")!!.innerHTML += "<tbody><tr><td class=\"faculty-name-missed\">人文学類</td><td class=\"message-box\">・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-passed\">教育学類</td><td class=\"message-box\"></td><td><span>-</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-missed\">生物学類（区分A）</td><td class=\"message-box\">・応募要件を満たしていません<br>・重点科目上限を超えていません<br></td><td><span class=\"missed\">×</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-ok\">情報科学類（区分A）</td><td class=\"message-box\">・重点科目上限を超えていません<br></td><td><span>-</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-missed\">医療科学類</td><td class=\"message-box\">・重点科目として医科生化学・人体構造学・人体機能学・医科分子生物学・医療科学概論とこれら以外の専門導入科目、および化学類、物理学類開設の生物学序説が含まれます（8単位まで）<br>・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr></tbody>"
 
     val fileCount = csvFiles?.length ?: run {
         window.alert("ファイルを選択してください。")
@@ -86,22 +86,25 @@ private fun onStartCheckingButtonClicked() {
             }
             stringBuilder.toString().also { result = it }
             if (i == fileCount - 1) {
-                window.alert(result)
-                //GraduationChecker.checkWithCSV(result)
+                console.log(result)
+                GraduationChecker.checkWithCSV(result)
             }
         }
     }
 }
 
 fun resetTable() {
-    //TODO 初期化の内容を変更
     document.getElementById("result")!!.let {
         it.textContent = "" // 表を初期化
         it.innerHTML = """
-                            <th>学群・学類</th>
-                            <th class="message-box-th">メッセージ</th>
-                            <th class="result-box">応募要件</th>
-                            <th class="result-box">重点科目上限</th>
+                <th class="group">分類1</th>
+                <th class="group">分類2</th>
+                <th class="subject_group">科目群名</th>
+                <th class="subject">科目名</th>
+                <th class="credit_count">必要単位数<br>(科目群)</th>
+                <th class="credit_count">必要単位数<br>(分類2)</th>
+                <th class="credit_count">必要単位数<br>(分類1)</th>
+                <th class="credit_count">必要単位数<br>(卒業)</th>
             """.trimIndent()
     }
 
