@@ -78,88 +78,67 @@ object GraduationChecker {
         console.log(userSubjects)
         console.log(major)
 
-        var tr = document.createElement("tr")
-        document.getElementById("result")!!.appendChild(tr)
+        val array = Array(countChildSubject(major), { Array(8, { TableProperty() }) })
+        var i = 0
 
         //4重ループをぶん回す
-        //とてもspaghetti
-        major.subject_types.forEachIndexed loop1@{ index1, subjectType ->
-            if (subjectType.sub_subject_types.size == 0) {
-                return@loop1
-            }
-            val group1_td = document.createElement("td")
-            val childCount1 = countChildSubject(subjectType)
-            if (childCount1 != 0) {
-                group1_td.innerHTML = subjectType.subject_type_name
-                group1_td.setAttribute("rowspan", childCount1.toString())
-            }
-            subjectType.sub_subject_types.forEachIndexed loop2@{ index2, subSubjectType ->
-                if (subSubjectType.subject_groups.size == 0) {
-                    tr.appendChild(group1_td)
-                    return@loop2
-                }
-                val group2_td = document.createElement("td")
-                val childCount2 = countChildSubject(subSubjectType)
-                if (childCount2 != 0) {
-                    group2_td.innerHTML = subSubjectType.sub_subject_type_name
-                    group2_td.setAttribute("rowspan", childCount2.toString())
-                }
-                subSubjectType.subject_groups.forEachIndexed loop3@{ index3, subjectGroup ->
-                    if (subjectGroup.subjects.size == 0) {
-                        if (index2 == 0) {
-                            tr.appendChild(group1_td)
+        major.subject_types.forEach { subjectType ->
+            subjectType.sub_subject_types.forEach { subSubjectType ->
+                subSubjectType.subject_groups.forEach { subjectGroup ->
+                    subjectGroup.subjects.forEach { subject ->
+                        if (!array[i][0].isFilled) {
+                            array[i][0].data.text = subjectType.subject_type_name
+                            array[i][0].data.colspan = 1
+                            array[i][0].data.rowspan = countChildSubject(subjectType)
+                            for (j in i until i + array[i][0].data.rowspan) {
+                                array[j][0].isFilled = true
+                            }
                         }
-                        tr.appendChild(group2_td)
-                        return@loop3
-                    }
-                    val subjectGroup_td = document.createElement("td")
-                    val childCount3 = countChildSubject(subjectGroup)
-                    if (childCount3 != 0) {
-                        subjectGroup_td.innerHTML = subjectGroup.description.replace("\n", "<br>")
-                        subjectGroup_td.setAttribute("rowspan", childCount3.toString())
-                        if (subjectGroup.subjects.size == 1) {
-                            subjectGroup_td.setAttribute("colspan", "2")
+                        if (!array[i][1].isFilled) {
+                            array[i][1].data.text = subSubjectType.sub_subject_type_name
+                            array[i][1].data.colspan = 1
+                            array[i][1].data.rowspan = countChildSubject(subSubjectType)
+                            for (j in i until i + array[i][1].data.rowspan) {
+                                array[j][1].isFilled = true
+                            }
                         }
-                    }
-                    subjectGroup.subjects.forEachIndexed { index4, subject ->
-                        /*
-                            index1, subjectType : 専門科目 etc.
-                            index2, subSubjectType : 必修科目 etc.
-                            index3, subjectGroup : E,F,G,H... etc.
-                            index4, subject : 確率論 etc.
-                             */
-
-                        if (subjectGroup.subjects.size == 1) {
-                            if (index3 == 0) {
-                                if (index2 == 0) {
-                                    tr.appendChild(group1_td)
+                        if (!array[i][2].isFilled) {
+                            array[i][2].data.text = subjectGroup.description
+                            array[i][2].data.colspan = if (countChildSubject(subjectGroup) == 1) 2 else 1
+                            array[i][2].data.rowspan = countChildSubject(subjectGroup)
+                            for (j in i until i + array[i][2].data.rowspan) {
+                                for (k in 2 until 2 + array[i][2].data.colspan) {
+                                    array[j][k].isFilled = true
                                 }
-                                tr.appendChild(group2_td)
                             }
-                            tr.appendChild(subjectGroup_td)
-                        } else if (subjectGroup.subjects.size >= 2) {
-                            val subject_td = document.createElement("td").also {
-                                it.innerHTML = subject.name
-                            }
-                            if (index4 == 0) {
-                                if (index3 == 0) {
-                                    if (index2 == 0) {
-                                        tr.appendChild(group1_td)
-                                    }
-                                    tr.appendChild(group2_td)
-                                }
-                                tr.appendChild(subjectGroup_td)
-                            }
-                            tr.appendChild(subject_td)
                         }
-                        tr = document.createElement("tr")
-                        document.getElementById("result")!!.appendChild(tr)
+                        if (!array[i][3].isFilled) {
+                            array[i][3].data.text = subject.name
+                            array[i][3].data.colspan = 1
+                            array[i][3].data.rowspan = 1
+                            array[i][3].isFilled = true
+                        }
+                        i++
                     }
                 }
             }
         }
 
-        document.getElementById("result")!!.lastElementChild?.remove()
+        for (j in 0 until array.size) {
+            val tr = document.createElement("tr")
+            document.getElementById("result")!!.appendChild(tr)
+            for (k in 0 until array[j].size) {
+                if (array[j][k].data.text == "") {
+                    continue
+                }
+                val td = document.createElement("td").also {
+                    it.innerHTML = array[j][k].data.text
+                    it.setAttribute("colspan", array[j][k].data.colspan.toString())
+                    it.setAttribute("rowspan", array[j][k].data.rowspan.toString())
+                }
+                tr.appendChild(td)
+            }
+        }
 
         isChecking = false
     }
@@ -180,6 +159,14 @@ object GraduationChecker {
         var count = 0
         subjectType.sub_subject_types.forEach { subSubjectType ->
             count += countChildSubject(subSubjectType)
+        }
+        return count
+    }
+
+    private fun countChildSubject(major: Major): Int {
+        var count = 0
+        major.subject_types.forEach { subjectType ->
+            count += countChildSubject(subjectType)
         }
         return count
     }
