@@ -37,6 +37,7 @@ object GraduationChecker {
         }
 
         document.getElementById("faculty")?.addEventListener("input", EventListener { event ->
+            resetTable()
             val majorSelect = document.getElementById("major") ?: run {
                 //TODO 文言これでいい？
                 window.alert("エラーが発生しました")
@@ -64,6 +65,7 @@ object GraduationChecker {
                 return@EventListener
             }
         })
+        document.getElementById("major")?.addEventListener("input", EventListener { resetTable() })
     }
 
     // 移行要件をチェックする
