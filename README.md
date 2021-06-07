@@ -28,7 +28,7 @@ rule_definitions.json is used by this tool to define the migration requirements.
                     - [subject_groups](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/SubjectGroup.kt) : ```Array<SubjectGroup>```
                         - description : ```String``` Define description of this subject_group.
                         - credits_min : ```Integer``` Minimum credits of this subject_group
-                        - credtis_max(Optional) : ```Integer``` Maximum credits of this subject_group
+                        - credits_max(Optional) : ```Integer``` Maximum credits of this subject_group
                         - [subjects](https://github.com/maru2213/scs-migration-checker/blob/master/src/main/kotlin/model/Subject.kt) : ```Array<Subject>```
                             - name(Optional) : ```String``` The subject's name (e.g. フレッシュマンセミナー)
                             - subject_numbers : ```Array<String>``` The subject's numbers
