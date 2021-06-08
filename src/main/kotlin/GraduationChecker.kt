@@ -96,7 +96,7 @@ object GraduationChecker {
                             }
                         }
                         if (!array[i][2].isFilled) {
-                            array[i][2].data.text = subjectGroup.description.replace("\n", "<br>")
+                            array[i][2].data.text = subjectGroup.description
                             array[i][2].data.colspan = if (countChildSubject(subjectGroup) == 1) 2 else 1
                             array[i][2].data.rowspan = countChildSubject(subjectGroup)
                             for (j in i until i + array[i][2].data.rowspan) {
@@ -167,7 +167,7 @@ object GraduationChecker {
                     continue
                 }
                 val td = document.createElement("td").also {
-                    it.innerHTML = array[j][k].data.text
+                    it.innerHTML = array[j][k].data.text.replace("\n", "<br>")
                     it.setAttribute("colspan", array[j][k].data.colspan.toString())
                     it.setAttribute("rowspan", array[j][k].data.rowspan.toString())
                 }
