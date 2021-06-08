@@ -25,16 +25,8 @@ object GraduationChecker {
         ruleDefinitions = Json.decodeFromString(RuleDefinition.serializer(), json)
         console.log("[Rule Definitions] Version: ${ruleDefinitions.version} Last Updated At: ${ruleDefinitions.updatedAt}")
 
-        val facultySelect = document.getElementById("faculty") ?: run {
-            //TODO 文言これでいい？
-            window.alert("エラーが発生しました")
-            return
-        }
-        val majorSelect = document.getElementById("major") ?: run {
-            //TODO 文言これでいい？
-            window.alert("エラーが発生しました")
-            return
-        }
+        val facultySelect = document.getElementById("faculty")!!
+        val majorSelect = document.getElementById("major")!!
 
         if (ruleDefinitions.faculties.size == 1) {
             val faculty = ruleDefinitions.faculties[0]
