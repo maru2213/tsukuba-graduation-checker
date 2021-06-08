@@ -3,7 +3,6 @@ import kotlinx.browser.window
 import kotlinx.serialization.json.Json
 import model.*
 import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.events.EventListener
 import org.w3c.fetch.Request
 
 object GraduationChecker {
@@ -31,43 +30,31 @@ object GraduationChecker {
             window.alert("エラーが発生しました")
             return
         }
-        if (ruleDefinitions.faculties.size >= 2) {
-            facultySelect.innerHTML += """<option value="null">選択してください</option>"""
+        val majorSelect = document.getElementById("major") ?: run {
+            //TODO 文言これでいい？
+            window.alert("エラーが発生しました")
+            return
         }
-        ruleDefinitions.faculties.forEach { faculty ->
+
+        if (ruleDefinitions.faculties.size == 1) {
+            val faculty = ruleDefinitions.faculties[0]
             facultySelect.innerHTML += "<option>${faculty.facultyName}</option>"
+
+            if (faculty.majors.size >= 2) {
+                majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+            }
+            faculty.majors.forEach { major ->
+                majorSelect.innerHTML += "<option>${major.major_name}</option>"
+            }
+        } else {
+            facultySelect.innerHTML += """<option value="null">選択してください</option>"""
+            ruleDefinitions.faculties.forEach { faculty ->
+                facultySelect.innerHTML += "<option>${faculty.facultyName}</option>"
+            }
+            addInputFacultyEventListener(ruleDefinitions)
         }
 
-        document.getElementById("faculty")?.addEventListener("input", EventListener { event ->
-            resetTable()
-            val majorSelect = document.getElementById("major") ?: run {
-                //TODO 文言これでいい？
-                window.alert("エラーが発生しました")
-                return@EventListener
-            }
-
-            val selectedValue = (event.target as HTMLSelectElement).value
-            if (selectedValue == "null") {
-                majorSelect.innerHTML = ""
-                return@EventListener
-            }
-
-            ruleDefinitions.faculties.forEach { faculty ->
-                if (selectedValue != faculty.facultyName) {
-                    //continueみたいなモノ
-                    return@forEach
-                }
-
-                if (faculty.majors.size >= 2) {
-                    majorSelect.innerHTML += """<option value="null">選択してください</option>"""
-                }
-                faculty.majors.forEach { major ->
-                    majorSelect.innerHTML += "<option>${major.major_name}</option>"
-                }
-                return@EventListener
-            }
-        })
-        document.getElementById("major")?.addEventListener("input", EventListener { resetTable() })
+        addInputMajorEventListener()
     }
 
     // 移行要件をチェックする

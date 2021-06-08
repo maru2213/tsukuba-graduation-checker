@@ -1,5 +1,6 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
+import model.RuleDefinition
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.EventListener
@@ -110,4 +111,40 @@ fun resetTable() {
     document.getElementById("subjects-box")!!.let {
         it.textContent = ""
     }
+}
+
+fun addInputFacultyEventListener(ruleDefinitions: RuleDefinition) {
+    document.getElementById("faculty")?.addEventListener("input", EventListener { event ->
+        resetTable()
+        val majorSelect = document.getElementById("major") ?: run {
+            //TODO 文言これでいい？
+            window.alert("エラーが発生しました")
+            return@EventListener
+        }
+
+        val selectedValue = (event.target as HTMLSelectElement).value
+        if (selectedValue == "null") {
+            majorSelect.innerHTML = ""
+            return@EventListener
+        }
+
+        ruleDefinitions.faculties.forEach { faculty ->
+            if (selectedValue != faculty.facultyName) {
+                //continueみたいなモノ
+                return@forEach
+            }
+
+            if (faculty.majors.size >= 2) {
+                majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+            }
+            faculty.majors.forEach { major ->
+                majorSelect.innerHTML += "<option>${major.major_name}</option>"
+            }
+            return@EventListener
+        }
+    })
+}
+
+fun addInputMajorEventListener() {
+    document.getElementById("major")?.addEventListener("input", EventListener { resetTable() })
 }
