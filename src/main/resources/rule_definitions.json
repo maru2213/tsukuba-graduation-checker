@@ -1,6 +1,6 @@
 {
-  "version": "0.0.4",
-  "updated_at": "2021/06/07",
+  "version": "0.0.6",
+  "updated_at": "2021/06/08",
   "author": "maru2213",
   "faculties": [
     {
@@ -19,7 +19,7 @@
                   "credits_max": 16,
                   "subject_groups": [
                     {
-                      "description": "ソフトウェアサイエンス実験系",
+                      "description": "ソフトウェアサイエンス実験",
                       "credits_min": 6,
                       "credits_max": 6,
                       "subjects": [
@@ -38,7 +38,7 @@
                       ]
                     },
                     {
-                      "description": "卒業研究系",
+                      "description": "卒業研究",
                       "credits_min": 6,
                       "credits_max": 6,
                       "subjects": [
@@ -61,7 +61,7 @@
                       ]
                     },
                     {
-                      "description": "専門語学系",
+                      "description": "専門語学",
                       "credits_min": 4,
                       "credits_max": 4,
                       "subjects": [
@@ -110,6 +110,7 @@
                       "credits_max": 18,
                       "subjects": [
                         {
+                          "name": "科目番号がGB2, GB3, GB4, GA4で始まる科目",
                           "subject_number": [
                             "GB2",
                             "GB3",
@@ -349,7 +350,7 @@
                   "credits_max": 24,
                   "subject_groups": [
                     {
-                      "description": "確率論グループ",
+                      "description": "選択必修科目",
                       "credits_min": 10,
                       "subjects": [
                         {
@@ -393,6 +394,50 @@
                           "subject_number": ["GB12812"],
                           "except_subject_numbers": [],
                           "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "Computer Science in English",
+                      "credits_min": 2,
+                      "subjects": [
+                        {
+                          "name": "Computer Science in English A",
+                          "subject_number": ["GB13614"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "Computer Science in English B",
+                          "subject_number": ["GB13624"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGB1で始まる科目(ただし、情報科学特別演習、情報特別演習I、情報特別演習IIは除く)",
+                      "credits_min": 0,
+                      "subjects": [
+                        {
+                          "name": "科目番号がGB1で始まる科目(ただし、情報科学特別演習、情報特別演習I、情報特別演習IIは除く)",
+                          "subject_number": ["GB1"],
+                          "except_subject_numbers": [
+                            "GB13332",
+                            "GB13312",
+                            "GB13322"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGA1で始まる科目",
+                      "credits_min": 8,
+                      "subjects": [
+                        {
+                          "name": "科目番号がGA1で始まる科目",
+                          "subject_number": ["GA1"],
+                          "except_subject_numbers": []
                         }
                       ]
                     }
@@ -497,7 +542,7 @@
                       ]
                     },
                     {
-                      "description": "その他",
+                      "description": "体育\n外国語\n国語\n芸術",
                       "credits_min": 0,
                       "credits_max": 4,
                       "subjects": [
