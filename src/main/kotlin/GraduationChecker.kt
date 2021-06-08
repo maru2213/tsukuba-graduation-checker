@@ -31,7 +31,9 @@ object GraduationChecker {
             window.alert("エラーが発生しました")
             return
         }
-        facultySelect.innerHTML += """<option value="null">選択してください</option>"""
+        if (ruleDefinitions.faculties.size >= 2) {
+            facultySelect.innerHTML += """<option value="null">選択してください</option>"""
+        }
         ruleDefinitions.faculties.forEach { faculty ->
             facultySelect.innerHTML += "<option>${faculty.facultyName}</option>"
         }
