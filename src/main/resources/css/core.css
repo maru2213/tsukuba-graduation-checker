@@ -18,8 +18,7 @@ th {
 td {
     text-align: center;
     vertical-align: center;
-    padding-top: 1.0em;
-    padding-bottom: 1.0em;
+    padding: 1.0em;
 }
 
 tr {
@@ -62,17 +61,23 @@ footer {
     padding-bottom: 1.0em;
 }
 
-.table-box {
-    padding-left: 10%;
-    padding-right: 10%;
+.table-box, .header, .footer {
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
+.footer {
+    text-align: center;
+}
+
+/*
 .message-box {
     display: inline-block;
     text-align: left;
     margin-left: 1.0em;
     margin-right: 1.0em;
 }
+*/
 
 th.group {
     width: 10%;
@@ -101,6 +106,48 @@ th.credit_count {
 }
 */
 
+/*
+.passed {
+    color: mediumseagreen;
+    font-weight: bold;
+}
+
+.missed {
+    color: red;
+    font-weight: bold;
+}
+*/
+
+/*
+.header-base {
+
+}
+
+.faculty-name-passed {
+    background-color: #82E0AA;
+}
+
+.faculty-name-ok {
+    background-color: #F7DC6F;
+}
+
+.faculty-name-missed {
+    background-color: #F1948A;
+}
+*/
+
+.start-checking-button {
+    background-color: #6600cc;
+    color: white;
+    border-style: none;
+    border-radius: 0.5em;
+    padding: 0.5em 1.5em;
+    font-size: 1.0em;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+}
+
+/*.wf-notosansjapanese { font-family: "Noto Sans JP"; }*/
+
 div#course {
     margin: 0.7em 0 0.7em 0;
 }
@@ -117,53 +164,3 @@ select#faculty, select#major {
     vertical-align: top;
     -webkit-appearance: none;
 }
-
-.passed {
-    color: mediumseagreen;
-    font-weight: bold;
-}
-
-.missed {
-    color: red;
-    font-weight: bold;
-}
-
-.footer {
-    text-align: center;
-}
-
-.header-base {
-
-}
-
-.header {
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.caption {
-    color: #222;
-}
-
-.faculty-name-passed {
-    background-color: #82E0AA;
-}
-
-.faculty-name-ok {
-    background-color: #F7DC6F;
-}
-
-.faculty-name-missed {
-    background-color: #F1948A;
-}
-
-.start-checking-button {
-    background-color: #6600cc;
-    color: white;
-    border-style: none;
-    border-radius: 0.5em;
-    padding: 0.5em 1.5em;
-    font-size: 1.0em;
-}
-
-.wf-notosansjapanese { font-family: "Noto Sans JP"; }
