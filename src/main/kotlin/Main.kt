@@ -98,13 +98,20 @@ fun resetTable() {
     document.getElementById("result")!!.let {
         it.textContent = "" // 表を初期化
         it.innerHTML = """
-                <th class="group">分類1</th>
-                <th class="group">分類2</th>
-                <th class="subject_group">科目群名</th>
-                <th class="subject">科目名</th>
-                <th class="credit_count">必要単位数<br>(科目群)</th>
-                <th class="credit_count">必要単位数<br>(分類2)</th>
-                <th class="credit_count">必要単位数<br>(卒業)</th>
+            <thead>
+                <tr>
+                    <th class="group" rowspan="2">分類1</th>
+                    <th class="group" rowspan="2">分類2</th>
+                    <th class="subject_group" rowspan="2">科目群名</th>
+                    <th class="subject" rowspan="2">科目名</th>
+                    <th class="credit_count" colspan="3">履修単位数(必要単位数)</th>
+                </tr>
+                <tr>
+                    <th class="credit_count">科目群</th>
+                    <th class="credit_count">分類2</th>
+                    <th class="credit_count">卒業</th>
+                </tr>
+            </thead>
             """.trimIndent()
     }
 

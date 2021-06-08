@@ -105,12 +105,12 @@ object GraduationChecker {
                         }
                         if (!array[i][4].isFilled) {
                             if (subjectGroup.credits_min == subjectGroup.credits_max) {
-                                array[i][4].data.text = subjectGroup.credits_min.toString()
+                                array[i][4].data.text = "（${subjectGroup.credits_min}）"
                             } else {
                                 if (subjectGroup.credits_max == Int.MAX_VALUE) {
-                                    array[i][4].data.text = "${subjectGroup.credits_min}〜"
+                                    array[i][4].data.text = "（${subjectGroup.credits_min}〜）"
                                 } else {
-                                    array[i][4].data.text = "${subjectGroup.credits_min}〜${subjectGroup.credits_max}"
+                                    array[i][4].data.text = "（${subjectGroup.credits_min}〜${subjectGroup.credits_max}）"
                                 }
                             }
                             array[i][4].data.colspan = 1
@@ -121,12 +121,12 @@ object GraduationChecker {
                         }
                         if (!array[i][5].isFilled) {
                             if (subSubjectType.credits_min == subSubjectType.credits_max) {
-                                array[i][5].data.text = subSubjectType.credits_min.toString()
+                                array[i][5].data.text = "（${subSubjectType.credits_min}）"
                             } else {
                                 if (subSubjectType.credits_max == Int.MAX_VALUE) {
-                                    array[i][5].data.text = "${subSubjectType.credits_min}〜"
+                                    array[i][5].data.text = "（${subSubjectType.credits_min}〜）"
                                 } else {
-                                    array[i][5].data.text = "${subSubjectType.credits_min}〜${subSubjectType.credits_max}"
+                                    array[i][5].data.text = "（${subSubjectType.credits_min}〜${subSubjectType.credits_max}）"
                                 }
                             }
                             array[i][5].data.colspan = 1
@@ -136,7 +136,7 @@ object GraduationChecker {
                             }
                         }
                         if (!array[i][6].isFilled) {
-                            array[i][6].data.text = major.credits_graduation.toString()
+                            array[i][6].data.text = "（${major.credits_graduation}）"
                             array[i][6].data.colspan = 1
                             array[i][6].data.rowspan = countChildSubject(major)
                             for (j in i until i + array[i][6].data.rowspan) {
@@ -151,9 +151,11 @@ object GraduationChecker {
 
         //TODO 単位計算
 
+        val tbody = document.createElement("tbody")
+        document.getElementById("result")!!.appendChild(tbody)
         for (j in array.indices) {
             val tr = document.createElement("tr")
-            document.getElementById("result")!!.appendChild(tr)
+            tbody.appendChild(tr)
             for (k in array[j].indices) {
                 if (array[j][k].data.text == "") {
                     continue
