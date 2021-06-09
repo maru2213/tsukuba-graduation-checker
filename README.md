@@ -29,7 +29,7 @@ This tool read this file and check whether inputted timetable meets the criteria
                         - description : `String` Define description(or name) of this subject_group.
                         - credits_min : `Integer` Minimum credits of this subject_group
                         - credits_max(Optional) : `Integer` Maximum credits of this subject_group
-                        - [subjects](https://github.com/maru2213/tsukuba-graduationn-checker/blob/master/src/main/kotlin/model/Subject.kt) : `List<Subject>`
+                        - [subjects](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/src/main/kotlin/model/Subject.kt) : `List<Subject>`
                             - name(Optional) : `String` The subject's name (e.g. フレッシュマン・セミナー)
                             - subject_numbers : `List<String>` The subject's numbers
                             - except_subject_numbers : `List<String>` The numbers of except subjects (〇〇は除く系)
