@@ -1,6 +1,6 @@
 {
-  "version": "0.0.6",
-  "updated_at": "2021/06/08",
+  "version": "0.0.7",
+  "updated_at": "2021/06/09",
   "author": "maru2213",
   "faculties": [
     {
@@ -420,7 +420,6 @@
                       "credits_min": 0,
                       "subjects": [
                         {
-                          "name": "科目番号がGB1で始まる科目(ただし、情報科学特別演習、情報特別演習I、情報特別演習IIは除く)",
                           "subject_number": ["GB1"],
                           "except_subject_numbers": [
                             "GB13332",
@@ -435,7 +434,6 @@
                       "credits_min": 8,
                       "subjects": [
                         {
-                          "name": "科目番号がGA1で始まる科目",
                           "subject_number": ["GA1"],
                           "except_subject_numbers": []
                         }
