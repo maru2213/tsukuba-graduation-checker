@@ -53,6 +53,18 @@ private fun onStartCheckingButtonClicked() {
     //document.getElementById("subjects-box")!!.innerHTML += "<p>合計3単位：知能と情報科学 (1単位),　計算と情報科学 (1単位),　情報科学概論 (1単位)</p>"
     //document.getElementById("result")!!.innerHTML += "<tbody><tr><td class=\"faculty-name-missed\">人文学類</td><td class=\"message-box\">・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-passed\">教育学類</td><td class=\"message-box\"></td><td><span>-</span></td><td><span>-</span></td></tr><tr><td class=\"faculty-name-missed\">生物学類（区分A）</td><td class=\"message-box\">・応募要件を満たしていません<br>・重点科目上限を超えていません<br></td><td><span class=\"missed\">×</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-ok\">情報科学類（区分A）</td><td class=\"message-box\">・重点科目上限を超えていません<br></td><td><span>-</span></td><td><span class=\"missed\">×</span></td></tr><tr><td class=\"faculty-name-missed\">医療科学類</td><td class=\"message-box\">・重点科目として医科生化学・人体構造学・人体機能学・医科分子生物学・医療科学概論とこれら以外の専門導入科目、および化学類、物理学類開設の生物学序説が含まれます（8単位まで）<br>・応募要件を満たしていません<br></td><td><span class=\"missed\">×</span></td><td><span>-</span></td></tr></tbody>"
 
+    val elements = document.getElementsByName("data-source")
+    var inputMode = ""
+    for (i in 0 until elements.length) {
+        if ((elements.item(i) as HTMLInputElement).checked) {
+            inputMode = (elements.item(i) as HTMLInputElement).value
+        }
+    }
+    if (inputMode == "") {
+        window.alert("データのインポート元を選択してください。")
+        return
+    }
+
     val fileCount = csvFiles?.length ?: run {
         window.alert("ファイルを選択してください。")
         return
@@ -88,7 +100,7 @@ private fun onStartCheckingButtonClicked() {
             stringBuilder.toString().also { result = it }
             if (i == fileCount - 1) {
                 console.log(result)
-                GraduationChecker.checkWithCSV(result)
+                GraduationChecker.checkWithCSV(result, inputMode)
             }
         }
     }

@@ -240,6 +240,18 @@ object GraduationChecker {
     }
     */
 
+    fun dataPreprocessing(userSubjects: MutableMap<String, Double>): MutableMap<String, Double> {
+        val result = mutableMapOf<String, Double>()
+        userSubjects.toList().sortedBy { it.first }.toMap().forEach {
+            if (it.value == -1.0) {
+                //TODO
+            } else {
+                result[it.key] = it.value
+            }
+        }
+        return result
+    }
+
     /*
      CSVファイルを読み込む。CSVライブラリが使えなかったため独自実装。
      KdBもどきから得られるCSVは
@@ -250,26 +262,33 @@ object GraduationChecker {
      ～
      のように、"講義番号\n講義名","単位のようになっているため、以下のような実装になっている。
      */
-    fun checkWithCSV(csv: String) {
+    fun checkWithCSV(csv: String, inputMode: String) {
         //TODO 要る？
         resetTable()
 
         //document.getElementById("subjects-box")!!.innerHTML += "<h3>登録された授業</h3>"
 
         val subjects = mutableMapOf<String, Double>()
-        val split = csv.split("\n")
-        //var subjectText = ""
+        //TODO
+        if (inputMode == "alternative-kdb") {
+            val split = csv.split("\n")
+            //var subjectText = ""
 
-        //var sum = 0.0
-        split.forEachIndexed { index, text ->
-            if (text.matches("^(\")([a-zA-Z0-9]{7})\$") && split.size - 1 > index + 1) {
-                val data = split[index + 1].split("\",\"")
-                val subjectNumber = text.match("[a-zA-Z0-9]{7}")!![0]
-                val unit = data[1].match("[+-]?\\d+(?:\\.\\d+)?")!![0].toDouble()
-                //sum += unit
-                subjects[subjectNumber] = unit
-                //subjectText += ",　$subject (${unit}単位)"
+            //var sum = 0.0
+            split.forEachIndexed { index, text ->
+                if (text.matches("^(\")([a-zA-Z0-9]{7})\$") && split.size - 1 > index + 1) {
+                    val data = split[index + 1].split("\",\"")
+                    val subjectNumber = text.match("[a-zA-Z0-9]{7}")!![0]
+                    val unit = data[1].match("[+-]?\\d+(?:\\.\\d+)?")!![0].toDouble()
+                    //sum += unit
+                    subjects[subjectNumber] = unit
+                    //subjectText += ",　$subject (${unit}単位)"
+                }
             }
+        } else {
+            //TODO 文言これでいい？
+            window.alert("エラーが発生しました")
+            return
         }
 
         //document.getElementById("subjects-box")!!.innerHTML += "<p>合計${sum}単位：${subjectText.substring(2)}</p>"
@@ -285,7 +304,7 @@ object GraduationChecker {
 
                 faculty.majors.forEach { major ->
                     if (selectedMajor == major.major_name) {
-                        check(subjects, major)
+                        check(dataPreprocessing(subjects), major)
                         return@run
                     }
                 }
