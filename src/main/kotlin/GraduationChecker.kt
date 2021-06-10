@@ -34,6 +34,7 @@ object GraduationChecker {
 
             if (faculty.majors.size >= 2) {
                 majorSelect.innerHTML += """<option value="null">選択してください</option>"""
+                addInputMajorEventListener()
             }
             faculty.majors.forEach { major ->
                 majorSelect.innerHTML += "<option>${major.major_name}</option>"
@@ -44,9 +45,8 @@ object GraduationChecker {
                 facultySelect.innerHTML += "<option>${faculty.facultyName}</option>"
             }
             addInputFacultyEventListener(ruleDefinitions)
+            addInputMajorEventListener()
         }
-
-        addInputMajorEventListener()
     }
 
     // 移行要件をチェックする
@@ -202,6 +202,7 @@ object GraduationChecker {
 
     // TODO
     // 各要件が要求する単位の計算
+    /*
     private fun countUnit(userSubjects: Map<String, Double>, ruleSubjects: List<String>): Double {
         var unit = 0.0
         ruleSubjects.forEach { ruleSubject ->
@@ -237,6 +238,7 @@ object GraduationChecker {
         }
         return unit
     }
+    */
 
     /*
      CSVファイルを読み込む。CSVライブラリが使えなかったため独自実装。
