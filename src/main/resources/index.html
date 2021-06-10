@@ -20,12 +20,19 @@
 
 <div class="table-box">
     <div class="form-box">
-        <input type="file" id="subjects-csv" accept=".csv" multiple />
-        <div id="course">学類・主専攻
+        <div id="select-data-source" class="form-elements">
+            データ入力元：
+            <input type="radio" name="data-source" value="alternative-kdb">KdBもどき
+            <input type="radio" name="data-source" value="kdb">KdB
+            <input type="radio" name="data-source" value="twins">Twins
+        </div>
+        <input type="file" id="subjects-csv" class="form-elements" accept=".csv" multiple />
+        <div id="select-course" class="form-elements">
+            学類・主専攻：
             <select id="faculty"></select>
             <select id="major"></select>
         </div>
-        <button id="start-checking" class="start-checking-button" onclick="void(0)">判定する</button>
+        <button id="start-checking" class="form-elements" onclick="void(0)">判定する</button>
     </div>
 
     <table id="result">
