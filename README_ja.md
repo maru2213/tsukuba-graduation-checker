@@ -44,3 +44,8 @@
 - `subject_groups/credits_max` : この要素がない場合、内部的には`Int.MAX_VALUE`として扱われ、その`subject_groups`は最高単位数の制限がないものとされます。
 - `subjects/name` : 親の`subject_groups`要素が`subjects`にこの科目一つのみしか含まない場合にのみ省略できます。
 - `subjects/credits` : 省略可能ですが、パフォーマンスが落ちてしまうのでできるだけ書いてください。
+
+## ライセンス
+このソフトウェアはMPL-2.0 Licenseでライセンスされています。[LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE)もご覧ください。
+
+このソフトウェアは[itsu-dev](https://github.com/itsu-dev)氏および[Mimori256](https://github.com/Mimori256)氏制作の[scs-migration-checker](https://github.com/itsu-dev/scs-migration-checker)を基にしています。

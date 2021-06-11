@@ -43,3 +43,8 @@ This tool read this file and check whether inputted timetable meets the criteria
 - `subject_groups/credits_max` : If this element is omitted, it will be `Int.MAX_VALUE`. It means the `subject_groups` has no limit.
 - `subjects/name` : You can omit this element **only** if the parent `subject_groups` element has one subject.
 - `subjects/credits` : You had better write this element when the subject can take only one credit value.
+
+## License
+This software is released under the MPL-2.0 License, see "[LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE)".
+
+This software is based on [scs-migration-checker](https://github.com/itsu-dev/scs-migration-checker) by [itsu-dev](https://github.com/itsu-dev) and [Mimori256](https://github.com/Mimori256).
