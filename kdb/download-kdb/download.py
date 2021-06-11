@@ -49,7 +49,7 @@ response = session.post(do_url, data=csv_post)
 
 # output
 date = datetime.datetime.now()
-csv_dir = ".."
+csv_dir = "../csv"
 filename = "%s/kdb-%04d%02d%02d.csv" % (csv_dir, date.year, date.month, date.day)
 
 if not os.path.isdir(csv_dir):
