@@ -1,6 +1,6 @@
 {
-  "version": "0.0.7",
-  "updated_at": "2021/06/09",
+  "version": "0.0.8",
+  "updated_at": "2021/06/11",
   "author": "maru2213",
   "faculties": [
     {
@@ -424,7 +424,28 @@
                           "except_subject_numbers": [
                             "GB13332",
                             "GB13312",
-                            "GB13322"
+                            "GB13322",
+                            "GB10234",
+                            "GB10244",
+                            "GB10444",
+                            "GB10454",
+                            "GB19061",
+                            "GB11964",
+                            "GB11931",
+                            "GB11956",
+                            "GB11966",
+                            "GB10804",
+                            "GB12017",
+                            "GB11601",
+                            "GB11621",
+                            "GB12301",
+                            "GB12601",
+                            "GB11404",
+                            "GB12801",
+                            "GB12812",
+                            "GB13614",
+                            "GB13624"
+
                           ]
                         }
                       ]
@@ -435,7 +456,16 @@
                       "subjects": [
                         {
                           "subject_number": ["GA1"],
-                          "except_subject_numbers": []
+                          "except_subject_numbers": [
+                            "GA15211",
+                            "GA15221",
+                            "GA15311",
+                            "GA15321",
+                            "GA15111",
+                            "GA15121",
+                            "GA18212",
+                            "GA18312"
+                          ]
                         }
                       ]
                     }

@@ -70,15 +70,6 @@ footer {
     text-align: center;
 }
 
-/*
-.message-box {
-    display: inline-block;
-    text-align: left;
-    margin-left: 1.0em;
-    margin-right: 1.0em;
-}
-*/
-
 th.group {
     width: 10%;
 }
@@ -92,15 +83,13 @@ th.credit_count {
     font-size: 10pt;
 }
 
-/*
-.message-box-th {
-    width: 60%;
+.satisfied {
+    background-color: #82E0AA;
 }
 
-.result-box {
-    width: 10%;
+.overed {
+    background-color: #F7DC6F;
 }
-*/
 
 /*
 .passed {
@@ -111,12 +100,6 @@ th.credit_count {
 .missed {
     color: red;
     font-weight: bold;
-}
-*/
-
-/*
-.header-base {
-
 }
 
 .faculty-name-passed {
@@ -135,8 +118,6 @@ th.credit_count {
 .form-elements {
     margin: 0.4em 0;
 }
-
-/*.wf-notosansjapanese { font-family: "Noto Sans JP"; }*/
 
 #start-checking {
     background-color: #6600cc;
