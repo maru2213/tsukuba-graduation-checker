@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link rel="stylesheet" href="css/core.css">
-    <title>ITF.coins 卒業要件チェックツール</title>
+    <title>ITF. 卒業要件チェックツール</title>
 </head>
 
 <body>
 <header>
     <div class="header">
-        <h2>筑波大学 情報科学類 卒業要件チェックツール</h2>
-        <p class="caption">「
-            令和3（2021）年度　履修要覧」に基づいて、自分の履修時間割が卒業要件をどれだけ満たしているかを確認します。
-            このツールは情報科学類生の履修組みの利便性向上を目指して、有志によって開発されています。筑波大学公式のツールではありません。
+        <h2>筑波大学 卒業要件チェックツール</h2>
+        <p class="caption">
+            「令和3（2021）年度　履修要覧」に基づいて、自分の履修時間割が卒業要件をどれだけ満たしているかを確認します。
+            このツールは筑波大学生の履修組みの利便性向上を目指して、有志によって開発されています。
+            筑波大学公式のツールではありません。
+            ページ下部の<a href="#disclaimer">免責事項</a>もお読みください。
         </p>
+        <p class="caption">現在は情報科学類(ソフトウェアサイエンス主専攻)にのみ対応しています。</p>
     </div>
 </header>
 
@@ -26,7 +29,7 @@
             <!--<label><input type="radio" name="data-source" value="kdb">KdB</label>
             <label><input type="radio" name="data-source" value="twins">Twins</label>-->
         </div>
-        <input type="file" id="subjects-csv" class="form-elements" accept=".csv" multiple />
+        <input type="file" id="input-csv" class="form-elements" accept=".csv" multiple />
         <div id="select-course" class="form-elements">
             学類・主専攻：
             <select id="faculty"></select>
@@ -52,48 +55,64 @@
         </thead>
     </table>
 
-    <!-- TODO 要らないかも -->
-    <div id="subjects-box"></div>
+    <div id="usage">
+        <h3>使い方</h3>
+        <!--
+        <ul>
+            <li>KdBもどきを使用する場合
+            -->
+                <ol>
+                    <li><a href="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb">KdBもどき</a>にPCでアクセスする</li>
+                    <li>お気に入り機能を使用して履修時間割を組む</li>
+                    <li>一度検索条件をクリアし、「お気に入り」にチェックを入れて再度検索する</li>
+                    <li>画面最下部の「CSVダウンロード」をクリックする</li>
+                    <li>ダウンロードしたCSVファイルを、この画面上部の「ファイル選択」から選択する</li>
+                    <!--<li>「データ入力元」で「KdBもどき」を選択する</li>-->
+                    <li>学類・主専攻を選択する</li>
+                    <li>「判定する」を押す</li>
+                </ol>
+        <!--</li>-->
+            <!--
+            <li>Twinsを使用する場合
+                <ol>
+                    <li>実装中です……</li>
+                </ol>
+            </li>
+            -->
+        <!--</ul>-->
 
-    <h3>使い方</h3>
-    <ul>
-        <li>KdBもどきを使用する場合
-            <ol>
-                <!-- TODO 使用方法変更する -->
-                <li><a href="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb">KdBもどき</a>にPCでアクセスする</li>
-                <li>仮の履修時間割を組む</li>
-                <li>検索条件をクリアし、「お気に入り」にチェックを入れて検索する</li>
-                <li>画面最下部の「CSVダウンロード」をクリックする</li>
-                <li>移行要件ツールでダウンロードしたCSVファイルを選択する</li>
-                <li>「判定する」を押す</li>
-            </ol>
-        </li>
-        <li>Twinsを使用する場合
-            <ol>
-                <!-- TODO 使用方法書く -->
-                <li>実装中です……</li>
-            </ol>
-        </li>
-    </ul>
+        <p>
+            ・使用したCSVファイルがサーバーに保存されることはありません。
+        </p>
 
-    <!-- TODO 多分削る -->
-    <p>
-        ・応募可能で重点科目上限単位数を超えている場合には緑、重点科目単位数を超えていない場合には黄、そのどちらでもない場合には赤で示しています。<br />
-        ・履修を組む際の参考としてお使いください。<br />
-        ・使用したCSVファイルはサーバーには保存されません。<br />
-        ・医療科学類の重点科目上限単位数、医学類の判定には対応しておりません。
-    </p>
+        <!--
+        <p>
+            ・応募可能で重点科目上限単位数を超えている場合には緑、重点科目単位数を超えていない場合には黄、そのどちらでもない場合には赤で示しています。<br />
+            ・履修を組む際の参考としてお使いください。<br />
+            ・使用したCSVファイルはサーバーには保存されません。<br />
+            ・医療科学類の重点科目上限単位数、医学類の判定には対応しておりません。
+        </p>
+        -->
+    </div>
+
+    <div id="disclaimer">
+        <h3>免責事項</h3>
+        <ol>
+            <li>このツールが判定に使用している卒業要件のデータは、開発者が履修要覧を解釈して手入力したものです。その際には十分注意を払っておりますが、解釈違いや入力ミス等が存在するかもしれません。よって、このツールはあくまで参考とするに留めてください。</li>
+            <li>開発者は、利用者がこのツールを使用することにより発生し得る一切の不利益の責任を負いません。</li>
+        </ol>
+    </div>
 </div>
-<!-- TODO ナニコレ -->
-<div id="root"></div>
+
 <script src="tsukuba-graduation-checker.js"></script>
 
 <footer>
     <div class="footer">
-        <!-- TODO フッター書き換え -->
-        Contributed by <a href="https://github.com/itsu-dev">ちゅるり</a>, <a href="https://github.com/Mimori256">Mimori256</a> / <a
-            href="https://github.com/itsu-dev/scs-migration-checker">GitHub</a> <br/>
-        scs-migration-checkerは筑波大学公式ではありません。
+        Contributed by <a href="https://github.com/maru2213">まる</a>, <a href="https://github.com/itsu-dev">ちゅるり</a>, <a href="https://github.com/Mimori256">Mimori256</a>
+        /
+        <a href="https://github.com/maru2213/tsukuba-graduation-checker">GitHub</a>
+        <br>
+        tsukuba-graduation-checkerは筑波大学公式ではありません。
     </div>
 </footer>
 </body>
