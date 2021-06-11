@@ -1,5 +1,8 @@
+[日本語READMEはこちら](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/README_ja.md)
+
 # tsukuba-graduation-checker README(en)
 An unofficial graduation criteria checking tool for University of Tsukuba.
+
 You can use this tool at: https://maru2213.github.io/tsukuba-graduation-checker/
 
 ## Features
@@ -7,6 +10,7 @@ You can use this tool at: https://maru2213.github.io/tsukuba-graduation-checker/
 
 ## rule_definitions.json
 rule_definitions.json used by this tool defines the criteria for graduation.
+
 This tool read this file and check whether inputted timetable meets the criteria.
 
 ### Format

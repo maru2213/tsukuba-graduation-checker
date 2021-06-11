@@ -1,6 +1,9 @@
+[English README](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/README.md)
+
 # 筑波大学 卒業要件チェックツール README(ja)
 
 筑波大学の卒業要件をチェックする非公式のツールです。
+
 右のURLにアクセスすることでこのツールを使用することができます: https://maru2213.github.io/tsukuba-graduation-checker/
 
 ## Features
@@ -8,6 +11,7 @@
 
 ## rule_definitions.json
 卒業に必要な単位数などの条件はrule_definitions.jsonに定義されています。
+
 このツールは、入力された科目のリストがrule_definitions.jsonで定められている定義を満たすかどうかの判定を行います。
 
 ### フォーマット
