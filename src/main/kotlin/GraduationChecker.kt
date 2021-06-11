@@ -67,9 +67,11 @@ object GraduationChecker {
         var i = 0
 
         //6重ループをぶん回す
+        var majorCreditCount = 0.0
         major.subject_types.forEach { subjectType ->
-            subjectType.sub_subject_types.forEach { subSubjectType ->
-                subSubjectType.subject_groups.forEach subjectType@{ subjectGroup ->
+            subjectType.sub_subject_types.forEach subSubjectType@{ subSubjectType ->
+                var subSubjectTypeCreditCount = 0.0
+                subSubjectType.subject_groups.forEach subjectGroup@{ subjectGroup ->
                     var subjectGroupCreditCount = 0.0
                     subjectGroup.subjects.forEach { subject ->
                         if (!array[i][0].isFilled) {
@@ -127,7 +129,8 @@ object GraduationChecker {
                                 if (subSubjectType.credits_max == Int.MAX_VALUE) {
                                     array[i][5].data.text = "（${subSubjectType.credits_min}〜）"
                                 } else {
-                                    array[i][5].data.text = "（${subSubjectType.credits_min}〜${subSubjectType.credits_max}）"
+                                    array[i][5].data.text =
+                                        "（${subSubjectType.credits_min}〜${subSubjectType.credits_max}）"
                                 }
                             }
                             array[i][5].data.colspan = 1
@@ -154,10 +157,14 @@ object GraduationChecker {
                                     if (subject.credits == -1.0) {
                                         //TODO KdBから探す
                                     } else {
-                                        subjectGroupCreditCount += subject.credits;
+                                        subjectGroupCreditCount += subject.credits
+                                        subSubjectTypeCreditCount += subject.credits
+                                        majorCreditCount += subject.credits
                                     }
                                 } else {
-                                    subjectGroupCreditCount += userSubject.value;
+                                    subjectGroupCreditCount += userSubject.value
+                                    subSubjectTypeCreditCount += userSubject.value
+                                    majorCreditCount += userSubject.value
                                 }
                                 if (userSubject.key == subjectNumber) {
                                     return@subjectNum
@@ -168,16 +175,21 @@ object GraduationChecker {
                         i++
                     }
                     for (j in i - 1 downTo 0) {
-                        if (array[j][4].isFilled && array[j][4].data.text != "") {
+                        if (array[j][4].isFilled && array[j][4].data.text != "" && array[j][4].data.text.startsWith("（")) {
                             array[j][4].data.text = subjectGroupCreditCount.toString() + array[j][4].data.text
-                            return@subjectType
+                            return@subjectGroup
                         }
+                    }
+                }
+                for (j in i - 1 downTo 0) {
+                    if (array[j][5].isFilled && array[j][5].data.text != "" && array[j][5].data.text.startsWith("（")) {
+                        array[j][5].data.text = subSubjectTypeCreditCount.toString() + array[j][5].data.text
+                        return@subSubjectType
                     }
                 }
             }
         }
-
-        //TODO 単位計算
+        array[0][6].data.text = majorCreditCount.toString() + array[0][6].data.text
 
         val tbody = document.createElement("tbody")
         document.getElementById("result")!!.appendChild(tbody)
