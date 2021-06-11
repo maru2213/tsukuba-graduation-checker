@@ -25,11 +25,11 @@ jobs:
           pip install requests
       - name: Synchronize the csv file with an up-to-date one
         run: |
-          cd kdb
-          python download-kdb/download.py
-          python download-kdb/csv-json.py csv/kdb-$(date +%Y%m%d).csv False
-          cp kdb.json ../docs/
-          cd ../
+          cd kdb/download-kdb
+          python download.py
+          python csv-json.py ../csv/kdb-$(date +%Y%m%d).csv False
+          cp ../kdb.json ../../docs/
+          cd ../../
       - name: Push and Commit
         run: |
           git config --global user.email "action@github.com"
