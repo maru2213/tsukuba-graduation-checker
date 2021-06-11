@@ -1,5 +1,5 @@
 # tsukuba-graduation-checker README(en)
-An unofficial graduation criteria checking tool for University of Tsukuba - College of Information Science.  
+An unofficial graduation criteria checking tool for University of Tsukuba.
 You can use this tool at: https://maru2213.github.io/tsukuba-graduation-checker/
 
 ## Features
@@ -39,13 +39,3 @@ This tool read this file and check whether inputted timetable meets the criteria
 - `subject_groups/credits_max` : If this element is omitted, it will be `Int.MAX_VALUE`. It means the `subject_groups` has no limit.
 - `subjects/name` : You can omit this element **only** if the parent `subject_groups` element has one subject.
 - `subjects/credits` : You had better write this element when the subject can take only one credit value.
-    
-<!--
-#### Subject name
-Subject name must be defined at `/faculties/majors/subject_types/sub_subject_types/subject_groups/subjects`.
-- You must write **the name of the subject, not ID.**
-- If you want to specify unit of the subject, you can write `::(UNIT)` end of the name. (e.g. `"微分積分A::2"`)
-- If you don't specify unit of the subject, the subject unit will be processed as 1.
-- If you want to specify subjects which content "ABC", you can write `#CONTENTS:ABC`. (e.g. `#CONTENTS:基礎体育`)
-- If you want to specify whole subjects which don't include the required subjects, you can write `#OTHER_SUBJECTS:(MAX_UNIT)`.
--->
