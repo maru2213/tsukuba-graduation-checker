@@ -9,6 +9,8 @@ import org.w3c.files.FileReader
 import org.w3c.files.get
 
 private var csvFiles: FileList? = null
+private var csvString = ""
+private var readIndex = 0
 
 fun main() {
     GraduationChecker.loadRuleDefinitions()
@@ -80,26 +82,27 @@ private fun onStartCheckingButtonClicked() {
         return
     }
 
-    var result = ""
+    readCSVFiles(fileCount, inputMode, facultySelect.value, majorSelect.value)
+}
 
-    //TODO 複数ファイル読み込みで順番保証できる？
-    for (i in 0 until fileCount) {
-        val file = csvFiles?.get(i) ?: run {
-            window.alert("エラーが発生しました。- M4")
-            return
+private fun readCSVFiles(fileCount: Int, inputMode: String, faculty: String, major: String) {
+    val file = csvFiles?.get(readIndex) ?: run {
+        window.alert("エラーが発生しました。- M4")
+        return
+    }
+    val reader = FileReader()
+    reader.readAsText(file)
+    reader.onload = {
+        val stringBuilder = StringBuilder().also {
+            it.append(csvString)
+            it.append(reader.result.toString())
         }
-
-        val reader = FileReader()
-        reader.readAsText(file)
-        reader.onload = {
-            val stringBuilder = StringBuilder().also {
-                it.append(result)
-                it.append(reader.result.toString())
-            }
-            stringBuilder.toString().also { result = it }
-            if (i == fileCount - 1) {
-                GraduationChecker.checkWithCSV(result, inputMode, facultySelect.value, majorSelect.value)
-            }
+        stringBuilder.toString().also { csvString = it }
+        if (readIndex == fileCount - 1) {
+            GraduationChecker.checkWithCSV(csvString, inputMode, faculty, major)
+        } else {
+            readIndex++
+            readCSVFiles(fileCount, inputMode, faculty, major)
         }
     }
 }
