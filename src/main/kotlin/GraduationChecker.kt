@@ -66,10 +66,11 @@ object GraduationChecker {
         val array = Array(countChildSubject(major)) { Array(7) { TableProperty() } }
         var i = 0
 
-        //4重ループをぶん回す
+        //6重ループをぶん回す
         major.subject_types.forEach { subjectType ->
             subjectType.sub_subject_types.forEach { subSubjectType ->
-                subSubjectType.subject_groups.forEach { subjectGroup ->
+                subSubjectType.subject_groups.forEach subjectType@{ subjectGroup ->
+                    var subjectGroupCreditCount = 0.0
                     subjectGroup.subjects.forEach { subject ->
                         if (!array[i][0].isFilled) {
                             array[i][0].data.text = subjectType.subject_type_name
@@ -143,7 +144,34 @@ object GraduationChecker {
                                 array[j][6].isFilled = true
                             }
                         }
+
+                        subject.subject_number.forEach subjectNum@{ subjectNumber ->
+                            userSubjects.forEach userSubject@{ userSubject ->
+                                if (subjectNumber == "" || !userSubject.key.startsWith(subjectNumber, true)) {
+                                    return@subjectNum
+                                }
+                                if (userSubject.value == -1.0) {
+                                    if (subject.credits == -1.0) {
+                                        //TODO KdBから探す
+                                    } else {
+                                        subjectGroupCreditCount += subject.credits;
+                                    }
+                                } else {
+                                    subjectGroupCreditCount += userSubject.value;
+                                }
+                                if (userSubject.key == subjectNumber) {
+                                    return@subjectNum
+                                }
+                            }
+                        }
+
                         i++
+                    }
+                    for (j in i - 1 downTo 0) {
+                        if (array[j][4].isFilled && array[j][4].data.text != "") {
+                            array[j][4].data.text = subjectGroupCreditCount.toString() + array[j][4].data.text
+                            return@subjectType
+                        }
                     }
                 }
             }

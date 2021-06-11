@@ -83,6 +83,7 @@ private fun onStartCheckingButtonClicked() {
 
     var result = ""
 
+    //TODO 複数ファイル読み込みで順番保証できる？
     for (i in 0 until fileCount) {
         val file = csvFiles?.get(i) ?: run {
             //TODO 文言これでいい？
