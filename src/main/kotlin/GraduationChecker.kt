@@ -62,13 +62,10 @@ object GraduationChecker {
 
         isChecking = true
 
-        //console.log(userSubjects)
-        //console.log(major)
-
         val array = Array(countChildSubject(major)) { Array(7) { TableProperty() } }
         var i = 0
 
-        //6重ループをぶん回す
+        //7重ループをぶん回す
         var majorCreditCount = 0.0
         major.subject_types.forEach { subjectType ->
             subjectType.sub_subject_types.forEach subSubjectType@{ subSubjectType ->
@@ -288,19 +285,17 @@ object GraduationChecker {
                 }
             }
         } else {
-            window.alert("エラーが発生しました。- G")
+            window.alert("エラーが発生しました。- G3")
             return
         }
 
         //TODO この辺のreturnがうまくいってるか不安
         ruleDefinitions.faculties.forEach { faculty ->
-            //console.log(faculty.facultyName)
             if (selectedFaculty != faculty.facultyName) {
                 return@forEach
             }
 
             faculty.majors.forEach { major ->
-                //console.log(major.major_name)
                 if (selectedMajor == major.major_name) {
                     check(subjects.toList().sortedBy { it.first }.toMap(), major)
                     return
