@@ -83,6 +83,14 @@ th.credit_count {
     font-size: 10pt;
 }
 
+.satisfied {
+    background-color: #82E0AA;
+}
+
+.overed {
+    background-color: #F7DC6F;
+}
+
 /*
 .passed {
     color: mediumseagreen;

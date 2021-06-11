@@ -179,6 +179,11 @@ object GraduationChecker {
                     for (j in i - 1 downTo 0) {
                         if (array[j][4].isFilled && array[j][4].data.text.startsWith("（")) {
                             array[j][4].data.text = subjectGroupCreditCount.toString() + array[j][4].data.text
+                            if (subjectGroup.credits_min <= subjectGroupCreditCount && subjectGroupCreditCount <= subjectGroup.credits_max) {
+                                array[j][4].data.class_.add("satisfied")
+                            } else if (subjectGroup.credits_max < subjectGroupCreditCount) {
+                                array[j][4].data.class_.add("overed")
+                            }
                             return@subjectGroup
                         }
                     }
@@ -186,12 +191,22 @@ object GraduationChecker {
                 for (j in i - 1 downTo 0) {
                     if (array[j][5].isFilled && array[j][5].data.text.startsWith("（")) {
                         array[j][5].data.text = subSubjectTypeCreditCount.toString() + array[j][5].data.text
+                        if (subSubjectType.credits_min <= subSubjectTypeCreditCount && subSubjectTypeCreditCount <= subSubjectType.credits_max) {
+                            array[j][5].data.class_.add("satisfied")
+                        } else if (subSubjectType.credits_max < subSubjectTypeCreditCount) {
+                            array[j][5].data.class_.add("overed")
+                        }
                         return@subSubjectType
                     }
                 }
             }
         }
         array[0][6].data.text = majorCreditCount.toString() + array[0][6].data.text
+        if (major.credits_graduation.toDouble() == majorCreditCount) {
+            array[0][6].data.class_.add("satisfied")
+        } else if (major.credits_graduation < majorCreditCount) {
+            array[0][6].data.class_.add("overed")
+        }
 
         val tbody = document.createElement("tbody")
         document.getElementById("result")!!.appendChild(tbody)
@@ -203,7 +218,13 @@ object GraduationChecker {
                     continue
                 }
                 val td = document.createElement("td").also {
+                    val stringBuilder = StringBuilder()
+                    array[j][k].data.class_.forEach { c ->
+                        stringBuilder.append(c)
+                        stringBuilder.append(" ")
+                    }
                     it.innerHTML = array[j][k].data.text.replace("\n", "<br>")
+                    it.setAttribute("class", stringBuilder.toString().dropLast(1))
                     it.setAttribute("colspan", array[j][k].data.colspan.toString())
                     it.setAttribute("rowspan", array[j][k].data.rowspan.toString())
                 }
