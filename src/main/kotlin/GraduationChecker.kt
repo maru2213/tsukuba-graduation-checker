@@ -277,9 +277,8 @@ object GraduationChecker {
             val split = csv.split("\n")
             split.forEachIndexed { index, text ->
                 if (text.matches("^(\")([a-zA-Z0-9]{7})\$") && split.size - 1 > index + 1) {
-                    val data = split[index + 1].split("\",\"")
                     val subjectNumber = text.match("[a-zA-Z0-9]{7}")!![0]
-                    val unit = data[1].match("[+-]?\\d+(?:\\.\\d+)?")!![0].toDouble()
+                    val unit = split[index + 1].split("\",\"")[1].match("\\d+(?:\\.\\d+)?")!![0].toDouble()
                     subjects[subjectNumber] = unit
                 }
             }
