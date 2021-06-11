@@ -1,1286 +1,624 @@
 {
-  "version": "1.0.4",
-  "updated_at": "2021/06/08",
-  "author": "itsu",
+  "version": "0.0.7",
+  "updated_at": "2021/06/09",
+  "author": "maru2213",
   "faculties": [
-
     {
-      "faculty_name": "人文学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "哲学・宗教学入門",
-            "史学入門",
-            "言語分析入門",
-            "個別言語学入門",
-            "考古学・民俗学入門"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "比較文化学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "フィールド文化領域比較文化研究",
-            "思想文化領域比較文化研究",
-            "日本・アジア領域比較文化研究",
-            "文化科学領域比較文化研究",
-            "英米・ヨーロッパ領域比較文化研究",
-            "表現文化領域比較文化研究"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "日本語・日本文化学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "共生のための日本語教育",
-            "共生のための人類学",
-            "共生のための歴史学",
-            "言語の科学",
-            "共生のための社会言語学"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "社会学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 1,
-          "subjects": [
-            "社会学の最前線",
-            "法学の最前線",
-            "経済学の最前線",
-            "政治学の最前線"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "社会学の最前線",
-            "法学の最前線",
-            "経済学の最前線",
-            "政治学の最前線",
-            "国際学II",
-            "国際学IV",
-            "国際学III",
-            "国際学I"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "国際総合学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 1,
-          "subjects": [
-            "国際学II",
-            "国際学IV",
-            "国際学III",
-            "国際学I"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "国際学II",
-            "国際学IV",
-            "国際学III",
-            "国際学I",
-            "社会学の最前線",
-            "法学の最前線",
-            "経済学の最前線",
-            "政治学の最前線"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "教育学類",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "心理学類",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "障害科学類",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "生物学類（区分A）",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 1,
-          "subjects": [
-            "分子細胞生物学概論",
-            "遺伝学概論",
-            "系統分類・進化学概論",
-            "生態学概論",
-            "動物生理学概論",
-            "植物生理学概論",
-            "生物学序説"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 6,
-          "subjects": [
-            "分子細胞生物学概論",
-            "遺伝学概論",
-            "系統分類・進化学概論",
-            "生態学概論",
-            "動物生理学概論",
-            "植物生理学概論",
-            "生物学序説",
-            "数学リテラシー1",
-            "化学1",
-            "数学リテラシー2",
-            "力学1",
-            "地球進化学1",
-            "力学2",
-            "化学2",
-            "生物資源と環境",
-            "電磁気学1",
-            "生物資源としての遺伝子とゲノム",
-            "電磁気学2",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "生物学類（区分B）",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 1,
-          "subjects": [
-            "分子細胞生物学概論",
-            "遺伝学概論",
-            "系統分類・進化学概論",
-            "生態学概論",
-            "動物生理学概論",
-            "植物生理学概論",
-            "生物学序説"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "生物資源学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 7,
-          "subjects": [
-            "English Reading Skills I",
-            "English Presentation Skills I",
-            "情報リテラシー(講義)",
-            "情報リテラシー(演習)",
-            "データサイエンス::2",
-            "フレッシュマン・セミナー"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 6,
-          "subjects": [
-            "生物資源学にみる食品科学・技術の最前線",
-            "生物資源と環境",
-            "生物資源の開発・生産と持続利用",
-            "生物資源としての遺伝子とゲノム",
-            "社会学の最前線",
-            "生物学序説",
-            "応用理工学概論",
-            "数学リテラシー1",
-            "化学概論",
-            "会計と経営",
-            "化学1",
-            "史学入門",
-            "微積分1",
-            "医科生化学::2",
-            "地球環境学1",
-            "数学リテラシー2",
-            "経済学の数理",
-            "力学1",
-            "地球進化学1",
-            "法学の最前線",
-            "分子細胞生物学概論",
-            "線形代数1",
-            "数学概論",
-            "工学システム概論",
-            "遺伝学概論",
-            "都市計画入門",
-            "力学2",
-            "物理学概論",
-            "化学2",
-            "考古学・民俗学入門",
-            "系統分類・進化学概論",
-            "医科分子生物学::2",
-            "電磁気学1",
-            "社会と最適化",
-            "線形代数2",
-            "経済学の最前線",
-            "力学3",
-            "生態学概論",
-            "政治学の最前線",
-            "地球進化学2",
-            "微積分2",
-            "地球環境学2",
-            "動物生理学概論",
-            "電磁気学2",
-            "都市数理",
-            "植物生理学概論",
-            "経済学の実証",
-            "線形代数3",
-            "化学3",
-            "微積分3",
-            "電磁気学3"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "地球学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "地球環境学1",
-            "地球環境学2",
-            "地球進化学1",
-            "地球進化学2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 12,
-          "subjects": [
-            "フィールド文化領域比較文化研究",
-            "生物学序説",
-            "応用理工学概論",
-            "数学リテラシー1",
-            "化学概論",
-            "化学1",
-            "生物資源学にみる食品科学・技術の最前線",
-            "数学リテラシー2",
-            "力学1",
-            "分子生物学概論",
-            "数学概論",
-            "工学システム概論",
-            "遺伝学概論",
-            "力学2",
-            "物理学概論",
-            "化学2",
-            "生物資源と環境",
-            "系統分類・進化学概論",
-            "電磁気学1",
-            "生物資源の開発・生産と持続利用",
-            "力学3",
-            "生態学概論",
-            "生物資源としての遺伝子とゲノム",
-            "動物生理学概論",
-            "電磁気学2",
-            "植物生理学概論",
-            "線形代数3",
-            "化学3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "数学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 6,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "電磁気学3"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 18,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "電磁気学3",
-            "生物学序説",
-            "化学1",
-            "地球環境学1",
-            "地球進化学1",
-            "化学2",
-            "地球進化学1",
-            "地球環境学2",
-            "化学3"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "物理学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 4,
-          "subjects": [
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "電磁気学3"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 4,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 18,
-          "subjects": [
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "電磁気学3",
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "生物学序説",
-            "化学1",
-            "分子細胞生物学概論",
-            "遺伝学概論",
-            "化学2",
-            "系統分類・進化学概論",
-            "動物生理学概論",
-            "植物生理学概論",
-            "化学3"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "化学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 1,
-          "subjects": [
-            "化学1",
-            "化学2",
-            "化学3"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 8,
-          "subjects": [
-            "化学1",
-            "化学2",
-            "化学3",
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "生物学序説",
-            "数学リテラシー1",
-            "地球環境学1",
-            "数学リテラシー2",
-            "地球進化学1",
-            "地球進化学2",
-            "地球環境学2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "4単位まで",
-          "type": "required_subjects_limit",
-          "minimum": 4,
-          "subjects": [
-            "生物学序説",
-            "数学リテラシー1",
-            "地球環境学1",
-            "数学リテラシー2",
-            "地球進化学1",
-            "地球進化学2",
-            "地球環境学2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 18,
-          "subjects": [
-            "化学1",
-            "化学2",
-            "化学3",
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "生物学序説",
-            "数学リテラシー1",
-            "地球環境学1",
-            "数学リテラシー2",
-            "地球進化学1",
-            "地球進化学2",
-            "地球環境学2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "4単位まで",
-          "type": "important_subjects_limit",
-          "minimum": 4,
-          "subjects": [
-            "生物学序説",
-            "数学リテラシー1",
-            "地球環境学1",
-            "数学リテラシー2",
-            "地球進化学1",
-            "地球進化学2",
-            "地球環境学2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "応用理工学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 8,
-          "subjects": [
-            "数学リテラシー1",
-            "化学1",
-            "数学リテラシー2",
-            "力学1",
-            "力学2",
-            "化学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "化学3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 17,
-          "subjects": [
-            "数学リテラシー1",
-            "化学1",
-            "数学リテラシー2",
-            "力学1",
-            "力学2",
-            "化学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "化学3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "その他",
-          "type": "others",
-          "message": "重点科目として、他に対象以外の専門導入科目、および化学類、物理学類開設の生物学序説が1単位まで対象となります"
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "工学システム学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 8,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "#OTHER_SUBJECTS:4"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 18,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "力学1",
-            "力学2",
-            "電磁気学1",
-            "力学3",
-            "電磁気学2",
-            "線形代数3",
-            "微積分3",
-            "電磁気学3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "#OTHER_SUBJECTS:4"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "社会工学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "required_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "important_subjects",
-          "minimum": 3,
-          "subjects": [
-            "数学リテラシー1",
-            "数学リテラシー2",
-            "線形代数3",
-            "微積分3",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2",
-            "会計と経営",
-            "経済学の数理",
-            "都市計画入門",
-            "社会と最適化",
-            "都市数理",
-            "経済学の実証"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "情報科学類（区分A）",
-      "rules": [
-        {
-          "description": "重点科目単位数1",
-          "type": "important_subjects",
-          "minimum": 2,
-          "subjects": [
-            "知識情報概論",
-            "情報メディア入門",
-            "知能と情報科学",
-            "知識情報システム概説",
-            "情報科学概論",
-            "計算と情報科学",
-            "図書館概論::2",
-            "コンテンツ入門::2",
-            "システムと情報科学"
-          ]
-        },
-        {
-          "description": "重点科目単位数2",
-          "type": "important_subjects",
-          "minimum": 8,
-          "subjects": [
-            "情報数学A::2",
-            "プログラミング入門A::2",
-            "微積分1",
-            "微積分2",
-            "微分積分A::2",
-            "線形代数1",
-            "線形代数A::2",
-            "線形代数2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "微積分1",
-            "微積分2",
-            "微分積分A::2"
-          ]
-        },
-        {
-          "description": "2単位まで",
-          "type": "important_subjects_limit",
-          "maximum": 2,
-          "subjects": [
-            "線形代数1",
-            "線形代数2",
-            "線形代数A::2"
-          ]
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "情報科学類（区分B）",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "情報メディア創成学類",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "知識情報・図書館学類",
-      "rules": []
-    },
-
-    {
-      "faculty_name": "看護学類",
-      "rules": [
-        {
-          "description": "応募要件1",
-          "type": "required_subjects",
-          "minimum": 26,
-          "subjects": [
-            "基礎看護学概論",
-            "生涯発達と家族支援::2",
-            "人体構造学::2",
-            "人体機能学::2",
-            "公衆衛生看護学概論::2",
-            "高齢者看護学概論",
-            "医療・生命科学とテクノロジー",
-            "医学史",
-            "看護生命倫理",
-            "精神看護学概論",
-            "English Reading Skills I",
-            "English Presentation Skills I",
-            "English Reading Skills II",
-            "English Presentation Skills II",
-            "情報リテラシー(講義)",
-            "情報リテラシー(演習)",
-            "データサイエンス::2",
-            "国語I",
-            "フレッシュマン・セミナー",
-            "学問への誘い",
-            "#CONTENTS:基礎体育",
-            "日本国憲法::2"
-          ]
-        },
-        {
-          "description": "応募要件2",
-          "type": "required_subjects",
-          "minimum": 2,
-          "subjects": [
-            "English Reading Skills I",
-            "English Presentation Skills I",
-            "English Reading Skills II",
-            "English Presentation Skills II"
-          ]
-        },
-        {
-          "description": "重点科目単位数",
-          "type": "important_subjects",
-          "minimum": 10,
-          "subjects": [
-            "基礎看護学概論",
-            "生涯発達と家族支援::2",
-            "人体構造学::2",
-            "人体機能学::2",
-            "公衆衛生看護学概論::2",
-            "高齢者看護学概論"
-          ]
-        },
-        {
-          "description": "その他",
-          "type": "others",
-          "message": "応募要件として別途面接があります"
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "医療科学類",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 11,
-          "subjects": [
-            "English Reading Skills I",
-            "English Presentation Skills I",
-            "English Reading Skills II",
-            "English Presentation Skills II",
-            "情報リテラシー(講義)",
-            "情報リテラシー(演習)",
-            "データサイエンス::2",
-            "フレッシュマン・セミナー",
-            "学問への誘い",
-            "#CONTENTS:基礎体育"
-          ]
-        },
-        {
-          "description": "重点科目上限単位数",
-          "type": "others",
-          "message": "重点科目として医科生化学・人体構造学・人体機能学・医科分子生物学・医療科学概論とこれら以外の専門導入科目、および化学類、物理学類開設の生物学序説が含まれます（8単位まで）"
-        }
-      ]
-    },
-
-    {
-      "faculty_name": "芸術専門学群",
-      "rules": [
-        {
-          "description": "応募要件",
-          "type": "required_subjects",
-          "minimum": 4,
-          "subjects": [
-            "美術史学概論",
-            "洋画概論",
-            "美術史概説A-1",
-            "デザイン史概説A",
-            "デジタル写真基礎演習",
-            "油彩画基礎演習1::2",
-            "日本画基礎演習1::2",
-            "彫塑基礎演習1::2",
-            "情報・プロダクトデザイン概論",
-            "総合造形概論",
-            "構成概論",
-            "プレゼンテーション基礎演習",
-            "素描基礎演習1::2",
-            "素描基礎演習2::2",
-            "立体加工基礎演習::2",
-            "芸術支援学概論",
-            "版画概論",
-            "環境デザイン概論",
-            "書概論",
-            "レンダリング基礎演習",
-            "工芸基礎演習(ガラス)::2",
-            "日本画概論",
-            "彫塑概論",
-            "ビジュアルデザイン概論",
-            "美術史概説B-1",
-            "デザイン史概説B",
-            "油彩画基礎演習2::2",
-            "日本画基礎演習2::2",
-            "彫塑基礎演習3::2",
-            "版画基礎演習::2",
-            "工芸基礎演習(陶磁)::2",
-            "工芸概論",
-            "素描基礎演習2::2",
-            "工芸基礎演習(木工)::2",
-            "建築デザイン概論",
-            "グラフィックツール基礎演習"
-          ]
-        },
-        {
-          "description": "応募要件",
-          "type": "important_subjects",
-          "minimum": 4,
-          "subjects": [
-            "美術史学概論",
-            "洋画概論",
-            "美術史概説A-1",
-            "デザイン史概説A",
-            "デジタル写真基礎演習",
-            "油彩画基礎演習1::2",
-            "日本画基礎演習1::2",
-            "彫塑基礎演習1::2",
-            "情報・プロダクトデザイン概論",
-            "総合造形概論",
-            "構成概論",
-            "プレゼンテーション基礎演習",
-            "素描基礎演習1::2",
-            "素描基礎演習2::2",
-            "立体加工基礎演習::2",
-            "芸術支援学概論",
-            "版画概論",
-            "環境デザイン概論",
-            "書概論",
-            "レンダリング基礎演習",
-            "工芸基礎演習(ガラス)::2",
-            "日本画概論",
-            "彫塑概論",
-            "ビジュアルデザイン概論",
-            "美術史概説B-1",
-            "デザイン史概説B",
-            "油彩画基礎演習2::2",
-            "日本画基礎演習2::2",
-            "彫塑基礎演習3::2",
-            "版画基礎演習::2",
-            "工芸基礎演習(陶磁)::2",
-            "工芸概論",
-            "素描基礎演習2::2",
-            "工芸基礎演習(木工)::2",
-            "建築デザイン概論",
-            "グラフィックツール基礎演習"
+      "faculty_name": "情報科学類",
+      "majors": [
+        {
+          "major_name": "ソフトウェアサイエンス",
+          "credits_graduation": 125,
+          "subject_types": [
+            {
+              "subject_type_name": "専門科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 16,
+                  "credits_max": 16,
+                  "subject_groups": [
+                    {
+                      "description": "ソフトウェアサイエンス実験",
+                      "credits_min": 6,
+                      "credits_max": 6,
+                      "subjects": [
+                        {
+                          "name": "ソフトウェアサイエンス実験A",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        },
+                        {
+                          "name": "ソフトウェアサイエンス実験B",
+                          "subject_number": [""],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "卒業研究",
+                      "credits_min": 6,
+                      "credits_max": 6,
+                      "subjects": [
+                        {
+                          "name": "卒業研究A",
+                          "subject_number": [
+                            ""
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        },
+                        {
+                          "name": "卒業研究B",
+                          "subject_number": [
+                            ""
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "専門語学",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "name": "専門語学A",
+                          "subject_number": [
+                            ""
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "専門語学B",
+                          "subject_number": [
+                            ""
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 36,
+                  "credits_max": 36,
+                  "subject_groups": [
+                    {
+                      "description": "科目番号がGB20, GB30, GB40で始まる科目",
+                      "credits_min": 18,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "GB20",
+                            "GB30",
+                            "GB40"
+                          ],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGB2, GB3, GB4, GA4で始まる科目\n情報科学特別演習\n情報特別演習I\n情報特別演習II",
+                      "credits_min": 0,
+                      "credits_max": 18,
+                      "subjects": [
+                        {
+                          "name": "科目番号がGB2, GB3, GB4, GA4で始まる科目",
+                          "subject_number": [
+                            "GB2",
+                            "GB3",
+                            "GB4",
+                            "GA4"
+                          ],
+                          "except_subject_numbers": [
+                            "GB20",
+                            "GB30",
+                            "GB40"
+                          ]
+                        },
+                        {
+                          "name": "情報科学特別演習",
+                          "subject_number": ["GB13332"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "情報特別演習I",
+                          "subject_number": ["GB13312"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "情報特別演習II",
+                          "subject_number": ["GB13322"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "専門基礎科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 26,
+                  "credits_max": 26,
+                  "subject_groups": [
+                    {
+                      "description": "線形代数A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "線形代数A",
+                          "subject_number": [
+                            "GA15211",
+                            "GA15221"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "線形代数B",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "線形代数B",
+                          "subject_number": [
+                            "GB10234",
+                            "GB10244"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "微分積分A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "微分積分A",
+                          "subject_number": [
+                            "GA15311",
+                            "GA15321"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "微分積分B",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "微分積分B",
+                          "subject_number": [
+                            "GB10444",
+                            "GB10454"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "情報数学A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "情報数学A",
+                          "subject_number": [
+                            "GA15111",
+                            "GA15121"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "専門英語基礎",
+                      "credits_min": 1,
+                      "credits_max": 1,
+                      "subjects": [
+                        {
+                          "name": "専門英語基礎",
+                          "subject_number": ["GB19061"],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "プログラミング入門A",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "プログラミング入門A",
+                          "subject_number": ["GA18212"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "プログラミング入門B",
+                      "credits_min": 1,
+                      "credits_max": 1,
+                      "subjects": [
+                        {
+                          "name": "プログラミング入門B",
+                          "subject_number": ["GA18312"],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "コンピュータとプログラミング",
+                      "credits_min": 3,
+                      "credits_max": 3,
+                      "subjects": [
+                        {
+                          "name": "コンピュータとプログラミング",
+                          "subject_number": ["GB11964"],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "データ構造とアルゴリズム",
+                      "credits_min": 3,
+                      "credits_max": 3,
+                      "subjects": [
+                        {
+                          "name": "データ構造とアルゴリズム",
+                          "subject_number": ["GB11931"],
+                          "except_subject_numbers": [],
+                          "credits": 3.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "データ構造とアルゴリズム実験",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "データ構造とアルゴリズム実験",
+                          "subject_number": [
+                            "GB11956",
+                            "GB11966"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "論理回路",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "論理回路",
+                          "subject_number": ["GB10804"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "論理回路演習",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "論理回路演習",
+                          "subject_number": ["GB12017"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 24,
+                  "credits_max": 24,
+                  "subject_groups": [
+                    {
+                      "description": "選択必修科目",
+                      "credits_min": 10,
+                      "subjects": [
+                        {
+                          "name": "確率論",
+                          "subject_number": ["GB11601"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "統計学",
+                          "subject_number": ["GB11621"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "数値計算法",
+                          "subject_number": ["GB12301"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "論理と形式化",
+                          "subject_number": ["GB12601"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "電磁気学",
+                          "subject_number": ["GB11404"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "論理システム",
+                          "subject_number": ["GB12801"],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        },
+                        {
+                          "name": "論理システム演習",
+                          "subject_number": ["GB12812"],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "Computer Science in English",
+                      "credits_min": 2,
+                      "subjects": [
+                        {
+                          "name": "Computer Science in English A",
+                          "subject_number": ["GB13614"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        },
+                        {
+                          "name": "Computer Science in English B",
+                          "subject_number": ["GB13624"],
+                          "except_subject_numbers": [],
+                          "credits": 2.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGB1で始まる科目(ただし、情報科学特別演習、情報特別演習I、情報特別演習IIは除く)",
+                      "credits_min": 0,
+                      "subjects": [
+                        {
+                          "subject_number": ["GB1"],
+                          "except_subject_numbers": [
+                            "GB13332",
+                            "GB13312",
+                            "GB13322"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "科目番号がGA1で始まる科目",
+                      "credits_min": 8,
+                      "subjects": [
+                        {
+                          "subject_number": ["GA1"],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "基礎科目-共通科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 12,
+                  "credits_max": 12,
+                  "subject_groups": [
+                    {
+                      "description": "総合科目(フレッシュマン・セミナー, 学問への誘い)",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "name": "フレッシュマン・セミナー",
+                          "subject_number": ["11"],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        },
+                        {
+                          "name": "学問への誘い",
+                          "subject_number": [
+                            "1227",
+                            "1228"
+                          ],
+                          "except_subject_numbers": [],
+                          "credits": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "description": "体育",
+                      "credits_min": 2,
+                      "credits_max": 2,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "2"
+                          ],
+                          "except_subject_numbers": ["28"]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "外国語(英語)",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "31H",
+                            "31J",
+                            "31K",
+                            "31L"
+                          ],
+                          "except_subject_numbers": [
+                            "3190012",
+                            "3190022"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "情報",
+                      "credits_min": 4,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": ["6"],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 1,
+                  "credits_max": 5,
+                  "subject_groups": [
+                    {
+                      "description": "総合科目(学士基盤科目)",
+                      "credits_min": 1,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "12",
+                            "14"
+                          ],
+                          "except_subject_numbers": [
+                            "1227",
+                            "1228"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "体育\n外国語\n国語\n芸術",
+                      "credits_min": 0,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "28",
+                            "3",
+                            "4",
+                            "5"
+                          ],
+                          "except_subject_numbers": [
+                            "31H",
+                            "31J",
+                            "31K",
+                            "31L"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_type_name": "基礎科目-関連科目",
+              "sub_subject_types": [
+                {
+                  "sub_subject_type_name": "必修科目",
+                  "credits_min": 0,
+                  "credits_max": 0,
+                  "subject_groups": []
+                },
+                {
+                  "sub_subject_type_name": "選択科目",
+                  "credits_min": 6,
+                  "credits_max": 10,
+                  "subject_groups": [
+                    {
+                      "description": "「E,F,G,Hで始まる科目、共通科目及び教職に関する科目」以外の科目",
+                      "credits_min": 6,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "8",
+                            "99",
+                            "A",
+                            "B",
+                            "C",
+                            "W",
+                            "Y",
+                            "VB",
+                            "XJ"
+                          ],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    },
+                    {
+                      "description": "E,F,GC,GE,Hで始まる科目",
+                      "credits_min": 0,
+                      "credits_max": 4,
+                      "subjects": [
+                        {
+                          "subject_number": [
+                            "E",
+                            "F",
+                            "GC",
+                            "GE",
+                            "H"
+                          ],
+                          "except_subject_numbers": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
