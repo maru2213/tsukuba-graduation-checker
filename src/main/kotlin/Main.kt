@@ -108,8 +108,8 @@ private fun onStartCheckingButtonClicked() {
 }
 
 fun resetTable() {
-    document.getElementById("result")!!.let {
-        it.innerHTML = """
+    document.getElementById("result")!!.innerHTML =
+        """
             <thead>
                 <tr>
                     <th class="group" rowspan="2">分類1</th>
@@ -124,8 +124,7 @@ fun resetTable() {
                     <th class="credit_count">卒業</th>
                 </tr>
             </thead>
-            """.trimIndent()
-    }
+        """.trimIndent()
 }
 
 fun addInputFacultyEventListener(ruleDefinitions: RuleDefinition) {
