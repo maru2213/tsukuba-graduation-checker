@@ -240,18 +240,6 @@ object GraduationChecker {
     }
     */
 
-    fun dataPreprocessing(userSubjects: MutableMap<String, Double>): MutableMap<String, Double> {
-        val result = mutableMapOf<String, Double>()
-        userSubjects.toList().sortedBy { it.first }.toMap().forEach {
-            if (it.value == -1.0) {
-                //TODO
-            } else {
-                result[it.key] = it.value
-            }
-        }
-        return result
-    }
-
     /*
      CSVファイルを読み込む。CSVライブラリが使えなかったため独自実装。
      KdBもどきから得られるCSVは
@@ -304,7 +292,7 @@ object GraduationChecker {
 
                 faculty.majors.forEach { major ->
                     if (selectedMajor == major.major_name) {
-                        check(dataPreprocessing(subjects), major)
+                        check(subjects.toList().sortedBy { it.first }.toMap(), major)
                         return@run
                     }
                 }
