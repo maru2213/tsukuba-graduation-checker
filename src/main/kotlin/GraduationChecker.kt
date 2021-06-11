@@ -150,11 +150,20 @@ object GraduationChecker {
                             }
                         }
 
+                        //TODO ループの順番が気持ち悪い
+                        //TODO 「〇〇から始まる科目」系から必修科目を自動的に除外できないか？
                         subject.subject_number.forEach subjectNum@{ subjectNumber ->
                             userSubjects.forEach userSubject@{ userSubject ->
                                 if (subjectNumber == "" || !userSubject.key.startsWith(subjectNumber, true)) {
-                                    return@subjectNum
+                                    return@userSubject
                                 }
+
+                                subject.except_subject_numbers.forEach { exceptNumber ->
+                                    if (userSubject.key.startsWith(exceptNumber, true)) {
+                                        return@userSubject
+                                    }
+                                }
+
                                 if (userSubject.value == -1.0) {
                                     if (subject.credits == -1.0) {
                                         //TODO KdBから探す
