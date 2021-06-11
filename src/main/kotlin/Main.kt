@@ -97,7 +97,7 @@ private fun readCSVFiles(fileCount: Int, inputMode: String, faculty: String, maj
             it.append(csvString)
             it.append(reader.result.toString())
         }
-        stringBuilder.toString().also { csvString = it }
+        csvString = stringBuilder.toString()
         if (readIndex == fileCount - 1) {
             GraduationChecker.checkWithCSV(csvString, inputMode, faculty, major)
         } else {
