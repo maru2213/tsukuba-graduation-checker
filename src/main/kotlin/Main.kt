@@ -18,6 +18,8 @@ fun main() {
     document.getElementById("start-checking")?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
     document.getElementById("input-csv")?.addEventListener("change", EventListener { event ->
         csvFiles = null
+        csvString = ""
+        readIndex = 0
         resetTable()
 
         val files = (event.target as HTMLInputElement).files ?: run {
@@ -82,7 +84,11 @@ private fun onStartCheckingButtonClicked() {
         return
     }
 
-    readCSVFiles(fileCount, inputMode, facultySelect.value, majorSelect.value)
+    if (csvString != "") {
+        GraduationChecker.checkWithCSV(csvString, inputMode, facultySelect.value, majorSelect.value)
+    } else {
+        readCSVFiles(fileCount, inputMode, facultySelect.value, majorSelect.value)
+    }
 }
 
 private fun readCSVFiles(fileCount: Int, inputMode: String, faculty: String, major: String) {
