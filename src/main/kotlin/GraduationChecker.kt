@@ -177,14 +177,14 @@ object GraduationChecker {
                         i++
                     }
                     for (j in i - 1 downTo 0) {
-                        if (array[j][4].isFilled && array[j][4].data.text != "" && array[j][4].data.text.startsWith("（")) {
+                        if (array[j][4].isFilled && array[j][4].data.text.startsWith("（")) {
                             array[j][4].data.text = subjectGroupCreditCount.toString() + array[j][4].data.text
                             return@subjectGroup
                         }
                     }
                 }
                 for (j in i - 1 downTo 0) {
-                    if (array[j][5].isFilled && array[j][5].data.text != "" && array[j][5].data.text.startsWith("（")) {
+                    if (array[j][5].isFilled && array[j][5].data.text.startsWith("（")) {
                         array[j][5].data.text = subSubjectTypeCreditCount.toString() + array[j][5].data.text
                         return@subSubjectType
                     }
