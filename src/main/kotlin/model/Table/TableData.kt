@@ -1,4 +1,4 @@
-package model
+package model.Table
 
 data class TableData(
     var text: String = "",

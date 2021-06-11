@@ -1,4 +1,4 @@
-package model
+package model.RuleDefinition
 
 import kotlinx.serialization.*
 

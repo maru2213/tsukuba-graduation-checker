@@ -1,8 +1,8 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.json.Json
-import model.*
-import org.w3c.dom.HTMLSelectElement
+import model.RuleDefinition.*
+import model.Table.TableProperty
 import org.w3c.fetch.Request
 
 object GraduationChecker {

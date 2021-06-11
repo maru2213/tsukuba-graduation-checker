@@ -1,6 +1,6 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
-import model.RuleDefinition
+import model.RuleDefinition.RuleDefinition
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.EventListener
