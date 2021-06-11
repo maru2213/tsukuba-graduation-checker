@@ -1,6 +1,7 @@
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.json.Json
+import model.Kdb
 import model.RuleDefinition.*
 import model.Table.TableProperty
 import org.w3c.fetch.Request
@@ -8,13 +9,22 @@ import org.w3c.fetch.Request
 object GraduationChecker {
 
     private lateinit var ruleDefinitions: RuleDefinition
+    private lateinit var kdb: Kdb
     private var isChecking = false
+    var isPrepared = false
 
-    fun loadRuleDefinitions() {
+    fun loadJsons() {
         window.fetch(Request("https://maru2213.github.io/tsukuba-graduation-checker/rule_definitions.json"))
             .then(onFulfilled = {
                 it.text().then { json ->
                     onLoadFinished(json)
+                }
+            })
+        window.fetch(Request("https://maru2213.github.io/tsukuba-graduation-checker/kdb.json"))
+            .then(onFulfilled = {
+                it.text().then { json ->
+                    kdb = Json.decodeFromString(Kdb.serializer(), json)
+                    isPrepared = true
                 }
             })
     }

@@ -13,7 +13,7 @@ private var csvString = ""
 private var readIndex = 0
 
 fun main() {
-    GraduationChecker.loadRuleDefinitions()
+    GraduationChecker.loadJsons()
 
     document.getElementById("start-checking")?.addEventListener("click", EventListener { onStartCheckingButtonClicked() })
     document.getElementById("input-csv")?.addEventListener("change", EventListener { event ->
@@ -81,6 +81,11 @@ private fun onStartCheckingButtonClicked() {
     val majorSelect = m as HTMLSelectElement
     if (facultySelect.value == "null" || majorSelect.value == "null") {
         window.alert("学類・主専攻を選択してください")
+        return
+    }
+
+    if (!GraduationChecker.isPrepared) {
+        window.alert("データのロード中です。しばらく待ってからもう一度お試しください。")
         return
     }
 
