@@ -11,8 +11,7 @@ object GraduationChecker {
     private var isChecking = false
 
     fun loadRuleDefinitions() {
-        //TODO URL変更
-        window.fetch(Request("https://maru2213.github.io/private-json/rule_definitions.json"))
+        window.fetch(Request("https://maru2213.github.io/tsukuba-graduation-checker/rule_definitions.json"))
             .then(onFulfilled = {
                 it.text().then { json ->
                     onLoadFinished(json)
