@@ -330,7 +330,7 @@ object GraduationChecker {
 
             faculty.majors.forEach { major ->
                 if (selectedMajor == major.major_name) {
-                    check(subjects.toList().sortedBy { it.first }.toMap(), major)
+                    check(subjects, major)
                     return
                 }
             }
