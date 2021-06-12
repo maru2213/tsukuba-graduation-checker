@@ -18,8 +18,10 @@ with open(args.csv) as fp:
     reader = csv.reader(fp)
 
     for line in reader:
-        for i in range(6):
-            line.pop(11)
+        for i in range(13):
+            line.pop(4)
+
+        line.pop(2)
 
         code = line[0]
 
@@ -32,7 +34,7 @@ with open(args.csv) as fp:
             continue
 
         # delete spaces
-        line[3] = line[3].strip()
+        line[2] = line[2].strip()
 
         output["subject"].append(line)
 

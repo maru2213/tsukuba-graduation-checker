@@ -286,7 +286,7 @@ object GraduationChecker {
         while (left < right) {
             val mid = (left + right) / 2
             if (kdb.subject[mid][0] == subjectNumber) {
-                return kdb.subject[mid][3].toDouble()
+                return kdb.subject[mid][2].toDouble()
             } else if (kdb.subject[mid][0].compareTo(subjectNumber) > 0) {
                 right = mid
             } else {
