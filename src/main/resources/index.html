@@ -29,8 +29,7 @@
         <div id="select-data-source" class="form-elements">
             データ入力元：
             <label><input type="radio" name="data-source" value="alternative-kdb" checked>KdBもどき</label>
-            <!--<label><input type="radio" name="data-source" value="kdb">KdB</label>
-            <label><input type="radio" name="data-source" value="twins">Twins</label>-->
+            <label><input type="radio" name="data-source" value="twins">Twins</label>
         </div>
         <input type="file" id="input-csv" class="form-elements" accept=".csv" multiple />
         <div id="select-course" class="form-elements">
@@ -60,29 +59,33 @@
 
     <div id="usage">
         <h3>使い方</h3>
-        <!--
         <ul>
             <li>KdBもどきを使用する場合
-            -->
                 <ol>
                     <li><a href="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb">KdBもどき</a>にPCでアクセスする</li>
                     <li>お気に入り機能を使用して履修時間割を組む</li>
                     <li>一度検索条件をクリアし、「お気に入り」にチェックを入れて再度検索する</li>
                     <li>画面最下部の「CSVダウンロード」をクリックする</li>
                     <li>ダウンロードしたCSVファイルを、この画面上部の「ファイル選択」から選択する</li>
-                    <!--<li>「データ入力元」で「KdBもどき」を選択する</li>-->
+                    <li>「データ入力元」で「KdBもどき」を選択する</li>
                     <li>学類・主専攻を選択する</li>
                     <li>「判定する」を押す</li>
                 </ol>
-        <!--</li>-->
-            <!--
+            </li>
             <li>Twinsを使用する場合
                 <ol>
-                    <li>実装中です……</li>
+                    <li><a href="https://twins.tsukuba.ac.jp/">Twins</a>にPCでアクセスする</li>
+                    <li>「履修」タブで判定したいモジュールの時間割を表示させる</li>
+                    <li>画面下部の「ダウンロード」ボタンを押す</li>
+                    <li>「CSV」と「Unicode（UTF-8）」が選択されていることを確認し、「出力」ボタンを押す</li>
+                    <li>複数のモジュールの時間割をまとめて判定したい場合は、以上のダウンロード作業を必要なモジュール全てに対して繰り返す</li>
+                    <li>ダウンロードした全てのCSVファイルを、この画面上部の「ファイル選択」から選択する</li>
+                    <li>「データ入力元」で「Twins」を選択する</li>
+                    <li>学類・主専攻を選択する</li>
+                    <li>「判定する」を押す</li>
                 </ol>
             </li>
-            -->
-        <!--</ul>-->
+        </ul>
 
         <p>
             ・応募可能で重点科目上限単位数を超えている場合には緑、重点科目単位数を超えていない場合には黄、そのどちらでもない場合には赤で示しています。<br>

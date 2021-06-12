@@ -171,7 +171,10 @@ object GraduationChecker {
 
                                 if (userSubject.value == -1.0) {
                                     if (subject.credits == -1.0) {
-                                        //TODO KdBから探す
+                                        val credits = searchCreditsFromKdb(userSubject.key)
+                                        subjectGroupCreditCount += credits
+                                        subSubjectTypeCreditCount += credits
+                                        majorCreditCount += credits
                                     } else {
                                         subjectGroupCreditCount += subject.credits
                                         subSubjectTypeCreditCount += subject.credits
@@ -277,11 +280,27 @@ object GraduationChecker {
         return count
     }
 
+    private fun searchCreditsFromKdb(subjectNumber: String): Double {
+        var left = 0
+        var right = kdb.subject.size
+        while (left < right) {
+            val mid = (left + right) / 2
+            if (kdb.subject[mid][0] == subjectNumber) {
+                return kdb.subject[mid][3].toDouble()
+            } else if (kdb.subject[mid][0].compareTo(subjectNumber) > 0) {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        console.log("Search Failed: ${subjectNumber}")
+        return 0.0
+    }
+
     fun checkWithCSV(csv: String, inputMode: String, selectedFaculty: String, selectedMajor: String) {
         resetTable()
 
         val subjects = mutableMapOf<String, Double>()
-        //TODO 他サイト対応
         if (inputMode == "alternative-kdb") {
             val split = csv.split("\n")
             split.forEachIndexed { index, text ->
@@ -289,6 +308,13 @@ object GraduationChecker {
                     val subjectNumber = text.match("[a-zA-Z0-9]{7}")!![0]
                     val unit = split[index + 1].split("\",\"")[1].match("\\d+(?:\\.\\d+)?")!![0].toDouble()
                     subjects[subjectNumber] = unit
+                }
+            }
+        } else if (inputMode == "twins") {
+            val split = csv.split("\r\n")
+            split.forEach { text ->
+                if (text != "") {
+                    subjects[text.replace("\"", "")] = -1.0
                 }
             }
         } else {
