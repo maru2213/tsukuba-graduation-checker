@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.0'
 }
 
-group = 'dev.itsu'
+group = 'io.github.maru2213'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -33,6 +33,5 @@ browserWebpack {
             from 'build/distributions/'
             into 'docs/'
         }
-        println("Copied!")
     }
 }
