@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0",
-  "updated_at": "2021/07/08",
+  "version": "1.2.1",
+  "updated_at": "2021/07/09",
   "author": "maru2213",
   "faculties": [
     {
@@ -597,12 +597,6 @@
             {
               "subject_type_name": "基礎科目-関連科目",
               "sub_subject_types": [
-                {
-                  "sub_subject_type_name": "必修科目",
-                  "credits_min": 0,
-                  "credits_max": 0,
-                  "subject_groups": []
-                },
                 {
                   "sub_subject_type_name": "選択科目",
                   "credits_min": 6,
@@ -1243,12 +1237,6 @@
               "subject_type_name": "基礎科目-関連科目",
               "sub_subject_types": [
                 {
-                  "sub_subject_type_name": "必修科目",
-                  "credits_min": 0,
-                  "credits_max": 0,
-                  "subject_groups": []
-                },
-                {
                   "sub_subject_type_name": "選択科目",
                   "credits_min": 6,
                   "credits_max": 10,
@@ -1887,12 +1875,6 @@
             {
               "subject_type_name": "基礎科目-関連科目",
               "sub_subject_types": [
-                {
-                  "sub_subject_type_name": "必修科目",
-                  "credits_min": 0,
-                  "credits_max": 0,
-                  "subject_groups": []
-                },
                 {
                   "sub_subject_type_name": "選択科目",
                   "credits_min": 6,
