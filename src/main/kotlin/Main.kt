@@ -146,9 +146,10 @@ fun addInputFacultyEventListener(ruleDefinitions: RuleDefinition) {
             return@EventListener
         }
 
+        majorSelect.innerHTML = ""
+
         val selectedValue = (event.target as HTMLSelectElement).value
         if (selectedValue == "null") {
-            majorSelect.innerHTML = ""
             return@EventListener
         }
 
