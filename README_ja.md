@@ -46,6 +46,9 @@
 - `subjects/credits` : 省略可能ですが、パフォーマンスが落ちてしまうのでできるだけ書いてください。
 
 ## ライセンス
-このソフトウェアはMPL-2.0 Licenseでライセンスされています。[LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE)もご覧ください。
+このソフトウェアはMPL-2.0 Licenseでライセンスされています。 [LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE) もご覧ください。
 
-このソフトウェアは[itsu-dev](https://github.com/itsu-dev)氏および[Mimori256](https://github.com/Mimori256)氏制作の[scs-migration-checker](https://github.com/itsu-dev/scs-migration-checker)を基にしています。
+このソフトウェアは [itsu-dev](https://github.com/itsu-dev) 氏および [Mimori256](https://github.com/Mimori256) 氏が制作した、 [scs-migration-checker](https://github.com/itsu-dev/scs-migration-checker) を基にしています。
+
+このソフトウェアは [inaniwaudon](https://github.com/inaniwaudon) 氏および [Mimori256](https://github.com/Mimori256) 氏が制作した、KdBからCSVデータをダウンロードし、JSONへパースする [スクリプト](https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb/tree/09569d959f23a89071c382bda69df6dae5d2e295) を使用しています。
+

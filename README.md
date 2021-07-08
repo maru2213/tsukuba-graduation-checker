@@ -48,3 +48,5 @@ This tool read this file and check whether inputted timetable meets the criteria
 This software is released under the MPL-2.0 License, see "[LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE)".
 
 This software is based on [scs-migration-checker](https://github.com/itsu-dev/scs-migration-checker) by [itsu-dev](https://github.com/itsu-dev) and [Mimori256](https://github.com/Mimori256).
+
+This software uses [a script](https://github.com/Make-IT-TSUKUBA/alternative-tsukuba-kdb/tree/09569d959f23a89071c382bda69df6dae5d2e295) downloading a csv data from KdB, which is created by [inaniwaudon](https://github.com/inaniwaudon) and [Mimori256](https://github.com/Mimori256).
