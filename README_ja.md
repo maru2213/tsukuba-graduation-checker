@@ -37,13 +37,13 @@
                         - [subjects](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/src/main/kotlin/model/Subject.kt) : `List<Subject>`
                             - name(Optional) : `String` この科目の名称 (e.g. フレッシュマン・セミナー)
                             - subject_numbers : `List<String>` この科目の科目番号
-                            - except_subject_numbers : `List<String>` 除外する科目の科目番号 (〇〇は除く系)
+                            - except_subject_numbers : `List<String>` 除外する科目の科目番号 (「〇〇は除く」系)
                             - credits(Optional) : `Double` この科目の単位数 (e.g. 1.0)
 
 #### "Optional"な要素について
 - `subject_groups/credits_max` : この要素がない場合、内部的には`Int.MAX_VALUE`として扱われ、その`subject_groups`は最高単位数の制限がないものとされます。
-- `subjects/name` : 親の`subject_groups`要素が`subjects`にこの科目一つのみしか含まない場合にのみ省略できます。
-- `subjects/credits` : 省略可能ですが、パフォーマンスが落ちてしまうのでできるだけ書いてください。
+- `subjects/name` : 親の`subject_group`要素が`subjects`にこの科目一つのみしか含まない場合にのみ省略できます。
+- `subjects/credits` : 省略可能ですがパフォーマンスが落ちてしまうので、可能ならば書いてください。
 
 ## ライセンス
 このソフトウェアはMPL-2.0 Licenseでライセンスされています。 [LICENSE](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/LICENSE) もご覧ください。

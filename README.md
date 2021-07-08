@@ -36,12 +36,12 @@ This tool read this file and check whether inputted timetable meets the criteria
                         - [subjects](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/src/main/kotlin/model/Subject.kt) : `List<Subject>`
                             - name(Optional) : `String` The subject's name (e.g. フレッシュマン・セミナー)
                             - subject_numbers : `List<String>` The subject's numbers
-                            - except_subject_numbers : `List<String>` The numbers of except subjects (〇〇は除く系)
+                            - except_subject_numbers : `List<String>` The numbers of except subjects (e.g. 「〇〇は除く」)
                             - credits(Optional) : `Double` The subject's credits (e.g. 1.0)
 
 #### About "Optional" elements
 - `subject_groups/credits_max` : If this element is omitted, it will be `Int.MAX_VALUE`. It means the `subject_groups` has no limit.
-- `subjects/name` : You can omit this element **only** if the parent `subject_groups` element has one subject.
+- `subjects/name` : You can omit this element **only** if the parent `subject_group` element has one subject.
 - `subjects/credits` : You had better write this element when the subject can take only one credit value.
 
 ## License
