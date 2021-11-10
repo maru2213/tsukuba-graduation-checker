@@ -36,6 +36,7 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+          git config pull.rebase true
           git add .
           git commit -m "update kdb data: $(date +%Y%m%d)"
           git pull origin master
