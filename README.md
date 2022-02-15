@@ -11,6 +11,8 @@ rule_definitions.json used by this tool defines the criteria for graduation.
 
 This tool read this file and check whether inputted timetable meets the criteria.
 
+Note that this file only supports Courses Directory of **2021**
+
 ### Format
 - [rule_definitions.json](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/src/main/kotlin/model/RuleDefinition.kt)
     - version : `String` Define version (e.g. 1.0.0)

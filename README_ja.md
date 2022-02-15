@@ -12,6 +12,8 @@
 
 このツールは、入力された科目のリストがrule_definitions.jsonで定められている定義を満たすかどうかの判定を行います。
 
+このファイルは**2021年度の履修要覧のみ**に対応しています。ご了承ください。
+
 ### フォーマット
 - [rule_definitions.json](https://github.com/maru2213/tsukuba-graduation-checker/blob/master/src/main/kotlin/model/RuleDefinition.kt)
     - version : `String` JSONファイルのバージョン (e.g. 1.0.0)
