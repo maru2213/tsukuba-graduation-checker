@@ -4,8 +4,6 @@
 
 筑波大学の卒業要件をチェックする非公式のツールです。
 
-右のURLにアクセスすることでこのツールを使用することができます: https://maru2213.github.io/tsukuba-graduation-checker/
-
 ## Features
 - Implemented in Kotlin/JS with Gradle
 

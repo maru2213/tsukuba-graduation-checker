@@ -3,8 +3,6 @@
 # tsukuba-graduation-checker README(en)
 An unofficial graduation criteria checking tool for University of Tsukuba.
 
-You can use this tool at: https://maru2213.github.io/tsukuba-graduation-checker/
-
 ## Features
 - Implemented in Kotlin/JS with Gradle
 
